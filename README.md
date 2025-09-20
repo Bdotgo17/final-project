@@ -1,4 +1,3 @@
-
 # News Explorer Frontend
 
 This is the frontend for the News Explorer project, built with React and Vite.
