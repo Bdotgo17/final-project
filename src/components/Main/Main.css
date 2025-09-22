@@ -1,3 +1,16 @@
 .Main {
-  /* Main styles go here */
+  width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Optional: add some top margin if you want extra space below the header */
+  /* margin-top: 24px; */
+}
+
+.results-block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
