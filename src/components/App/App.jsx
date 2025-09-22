@@ -61,6 +61,7 @@ function App() {
                 error={error}
                 showCount={showCount}
                 onShowMore={handleShowMore}
+                showSavedLink={showSavedLink}
               />
             }
           />

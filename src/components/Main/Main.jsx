@@ -20,25 +20,25 @@ function Main({
         <section className="hero-section">
           <SearchForm onSearch={onSearch} />
         </section>
+        <section className="results-block">
+          {loading && <Preloader />}
+          {!loading && error && <div className="results-error">{error}</div>}
+          {!loading && !error && articles && articles.length > 0 && (
+            <>
+              <div className="news-cards-list">
+                {articles.slice(0, showCount).map((article, idx) => (
+                  <NewsCard key={idx} article={article} />
+                ))}
+              </div>
+              {showCount < articles.length && (
+                <button className="show-more-btn" onClick={onShowMore}>
+                  Show more
+                </button>
+              )}
+            </>
+          )}
+        </section>
       </div>
-      <section className="results-block">
-        {loading && <Preloader />}
-        {!loading && error && <div className="results-error">{error}</div>}
-        {!loading && !error && articles && articles.length > 0 && (
-          <>
-            <div className="news-cards-list">
-              {articles.slice(0, showCount).map((article, idx) => (
-                <NewsCard key={idx} article={article} />
-              ))}
-            </div>
-            {showCount < articles.length && (
-              <button className="show-more-btn" onClick={onShowMore}>
-                Show more
-              </button>
-            )}
-          </>
-        )}
-      </section>
     </main>
   );
 }
