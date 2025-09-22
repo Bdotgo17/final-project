@@ -5,7 +5,9 @@ import Navigation from "../Navigation/Navigation";
 function Header({ showSavedLink }) {
   return (
     <header className="header">
-      <Navigation showSavedLink={showSavedLink} />
+      <div className="header-content">
+        <Navigation showSavedLink={showSavedLink} />
+      </div>
     </header>
   );
 }
