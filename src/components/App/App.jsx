@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Navigation from "../Navigation/Navigation";
+import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import SavedNews from "../../pages/SavedNews";
@@ -14,6 +14,8 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [showCount, setShowCount] = useState(3);
+
+  const showSavedLink = articles.length > 0;
 
   async function handleSearch(query) {
     if (!query) {
@@ -48,7 +50,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Navigation />
+        <Header showSavedLink={showSavedLink} /> {/* Pass the prop here */}
         <Routes>
           <Route
             path="/"

@@ -1,11 +1,11 @@
 // Utility for interacting with the News API
 
 const newsApiBaseUrl =
-  process.env.NODE_ENV === "production"
+  import.meta.env.MODE === "production"
     ? "https://nomoreparties.co/news/v2/everything"
     : "https://newsapi.org/v2/everything";
 
-const apiKey = "YOUR_NEWS_API_KEY"; // Replace with your actual API key
+const apiKey = import.meta.env.VITE_NEWS_API_KEY;
 
 export async function fetchNews(query) {
   if (!query) {
