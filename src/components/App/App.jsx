@@ -50,7 +50,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Header showSavedLink={showSavedLink} /> {/* Pass the prop here */}
         <Routes>
           <Route
             path="/"

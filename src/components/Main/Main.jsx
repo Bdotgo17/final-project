@@ -1,12 +1,26 @@
 import "./Main.css";
+import Header from "../Header/Header";
 import SearchForm from "../SearchForm/SearchForm";
 import Preloader from "../Preloader/Preloader";
 import NewsCard from "../NewsCard/NewsCard";
 
-function Main({ onSearch, articles, loading, error, showCount, onShowMore }) {
+function Main({
+  onSearch,
+  articles,
+  loading,
+  error,
+  showCount,
+  onShowMore,
+  showSavedLink,
+}) {
   return (
     <main className="Main">
-      <SearchForm onSearch={onSearch} />
+      <div className="hero-wrapper">
+        <Header showSavedLink={showSavedLink} />
+        <section className="hero-section">
+          <SearchForm onSearch={onSearch} />
+        </section>
+      </div>
       <section className="results-block">
         {loading && <Preloader />}
         {!loading && error && <div className="results-error">{error}</div>}
