@@ -1,9 +1,10 @@
 .header {
   width: 100%;
-  padding: 1rem 0;
   background: #f5f5f5;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  padding: 1rem 0;
+  position: fixed; /* Sticks to the top */
+  top: 0;
+  left: 0;
+  z-index: 100;
   box-shadow: 0 2px 4px rgba(0,0,0,0.03);
 }

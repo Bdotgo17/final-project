@@ -1,3 +1,20 @@
-.Navigation {
-  /* Navigation styles go here */
+.Navigation ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.Navigation li {
+  margin: 0;
+}
+
+.Navigation a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 1.1rem;
 }
