@@ -50,6 +50,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <Header showSavedLink={showSavedLink} />
         <Routes>
           <Route
             path="/"

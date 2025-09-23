@@ -3,6 +3,7 @@ import Header from "../Header/Header";
 import SearchForm from "../SearchForm/SearchForm";
 import Preloader from "../Preloader/Preloader";
 import NewsCard from "../NewsCard/NewsCard";
+import georgia from "../../assets/georgia.svg";
 
 function Main({
   onSearch,
@@ -15,7 +16,10 @@ function Main({
 }) {
   return (
     <main className="Main">
-      <div className="hero-wrapper">
+      <div
+        className="hero-wrapper"
+        style={{ background: `url(${georgia}) center/cover no-repeat` }}
+      >
         <Header showSavedLink={showSavedLink} />
         <section className="hero-section">
           <SearchForm onSearch={onSearch} />
