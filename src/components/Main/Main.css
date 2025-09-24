@@ -4,8 +4,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Optional: add some top margin if you want extra space below the header */
-  /* margin-top: 24px; */
 }
 
 .results-block {
@@ -16,6 +14,7 @@
 }
 
 .hero-wrapper {
+  background: red;
   width: 100%;
   max-width: 1440px;
   height: 576px;

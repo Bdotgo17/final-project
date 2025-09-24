@@ -4,6 +4,7 @@ import SearchForm from "../SearchForm/SearchForm";
 import Preloader from "../Preloader/Preloader";
 import NewsCard from "../NewsCard/NewsCard";
 import georgia from "../../assets/georgia.svg";
+console.log(georgia);
 
 function Main({
   onSearch,
