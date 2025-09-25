@@ -1,3 +1,69 @@
-.SearchForm {
-  /* SearchForm styles go here */
+.search-form {
+  display: flex;
+  width: 608px;
+}
+
+.search-input {
+  width: 440px; /* 608px - 168px */
+  height: 48px; /* adjust as needed */
+  padding: 0 16px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 24px 0 0 24px;
+  outline: none;
+  background: rgba(255, 255, 255, 1);
+  color: rgba(182, 188, 191, 1);
+}
+
+.search-btn {
+  width: 168px;
+  height: 48px; /* match input height */
+  font-size: 18px;
+  border: none;
+  border-radius: 0 24px 24px 0;
+  background: rgba(47, 113, 229, 1);
+  color: #fff;
+  cursor: pointer;
+  border-radius: 24px; /* Fully rounded ends */
+  transition: background 0.2s;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  margin-left: -16px; /* Fix for any 1px gap due to border collapse */
+}
+
+.search-title {
+  width: 608px;
+  height: 128px;
+  color: #fff;
+  font-family: "Roboto Slab", serif;
+  font-size: 60px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0 auto 0px auto;
+  border-radius: 12px; /* Optional: rounded corners */
+  box-sizing: border-box;
+  text-align: left;
+  white-space: normal; /* Allow wrapping */
+  word-break: break-word; /* Break long words if needed */
+  line-height: 1.1;
+  margin-top: 90px;
+}
+
+.search-subtitle {
+  margin-top: 32px;
+  color: #fff;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  opacity: 0.8;
+  text-align: left;
+  width: 608px;
+  box-sizing: border-box;
+}
+
+.search-bar-row {
+  display: flex;
+  width: 608px;
+  margin-top: 88px;
 }

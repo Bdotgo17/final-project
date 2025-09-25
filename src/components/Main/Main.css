@@ -14,7 +14,7 @@
 }
 
 .hero-wrapper {
-  background: red;
+  position: relative;
   width: 100%;
   max-width: 1440px;
   height: 576px;
