@@ -62,9 +62,9 @@ function NewsCard({ article }) {
       </div>
       <div className="news-content">
         <span className="news-date">{formatDate(article.publishedAt)}</span>
-        <span className="news-source">{article.source?.name}</span>
         <h3 className="news-title">{article.title}</h3>
         <p className="news-description">{article.description}</p>
+        <div className="news-source">{article.source?.name}</div>
         <a
           href={article.url}
           target="_blank"
