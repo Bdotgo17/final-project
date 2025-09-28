@@ -65,3 +65,13 @@
 .Navigation li:last-child a:hover {
   background: rgba(255, 255, 255, 0.1);
 }
+
+.sign-in-btn {
+  background: none;
+  border: none;
+  color: #2f71e5;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}

@@ -8,6 +8,8 @@ import { useState } from "react";
 console.log(georgia);
 import authorImg from "../../assets/author.jpg";
 import nothingFoundImg from "../../assets/nothing-found.svg";
+import LoginModal from "../LoginModal/LoginModal";
+import RegisterModal from "../RegisterModal/RegisterModal";
 
 function Main({
   onSearch,
@@ -52,13 +54,19 @@ function Main({
     hasSearched
   );
 
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+
   return (
     <main className="Main">
       <div
         className="hero-wrapper"
         style={{ background: `url(${georgia}) center/cover no-repeat` }}
       >
-        <Header showSavedLink={showSavedLink} />
+        <Header
+          showSavedLink={showSavedLink}
+          onSignIn={() => setIsLoginOpen(true)}
+        />{" "}
         <section className="hero-section">
           <SearchForm onSearch={handleSearch} />
         </section>
@@ -134,6 +142,22 @@ function Main({
           </p>
         </div>
       </section>
+      <LoginModal
+        isOpen={isLoginOpen}
+        onClose={() => setIsLoginOpen(false)}
+        onRegisterClick={() => {
+          setIsLoginOpen(false);
+          setIsRegisterOpen(true);
+        }}
+      />
+      <RegisterModal
+        isOpen={isRegisterOpen}
+        onClose={() => setIsRegisterOpen(false)}
+        onLoginClick={() => {
+          setIsRegisterOpen(false);
+          setIsLoginOpen(true);
+        }}
+      />
     </main>
   );
 }

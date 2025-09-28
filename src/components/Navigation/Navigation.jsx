@@ -14,7 +14,9 @@ function Navigation({ showSavedLink }) {
           </li>
         )}
         <li>
-          <Link to="/signin">Sign in</Link>
+          <button className="sign-in-btn" onClick={onSignIn}>
+            Sign in
+          </button>
         </li>
       </ul>
     </nav>
