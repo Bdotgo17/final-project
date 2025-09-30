@@ -32,8 +32,7 @@ function LoginModal({ isOpen, onClose, onRegisterClick, onSignIn }) {
   return (
     <ModalWithForm isOpen={isOpen} onClose={onClose}>
       <h2 className="modal-title">Sign In</h2>
-      <form className="login-form" onSubmit={handleSubmit}>
-        {" "}
+      <form className="register-form" onSubmit={handleSubmit}>
         <label className="modal-label" htmlFor="login-email">
           Email
         </label>
