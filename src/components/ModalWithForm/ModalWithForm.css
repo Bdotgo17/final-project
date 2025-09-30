@@ -1,3 +1,47 @@
+.ModalWithForm__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* dark overlay */
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 1000; /* high value to overlay everything */
+  padding-top: 207px; /* space from the top */
+}
+
 .ModalWithForm {
-  /* ModalWithForm styles go here */
+  background: #fff;
+  width: 430px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: stretch;
+}
+
+.ModalWithForm__close {
+  position: absolute;
+  top: -50px; /* adjust as needed */
+  right: -50px; /* adjust as needed */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ModalWithForm__close img {
+  width: 40px;
+  height: 40px;
+  display: block;
 }

@@ -1,3 +1,114 @@
-.LoginModal {
-  /* LoginModal styles go here */
+.modal-title {
+  color: #111;
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  position: absolute;
+  top: 34px;
+  left: 36px;
+  right: 318px;
+  bottom: 314px;
+  margin: 0;
 }
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* space between inputs and button */
+  margin-top: 80px; /* adjust as needed for spacing below the title */
+}
+
+.modal-input {
+  background: #fff;
+  color: #b6b6b6;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  border-radius: 0;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  line-height: 1.2;
+  height: 29px; /* set input height */
+  padding: 0 0 0 0px; /* add this for left padding */
+  margin-bottom: 0px;
+  transition: border-color 0.2s;
+  width: calc(100% - 72px); /* 36px left + 36px right */
+  margin-left: 36px;
+  margin-right: 36px;
+}
+
+.modal-input::placeholder {
+  color: #b6b6b6;
+  opacity: 1;
+}
+
+.modal-btn {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 100px;
+  border: none;
+  background: rgba(230, 232, 235, 1); /* default gray */
+  color: rgba(182, 188, 191, 1);
+  cursor: pointer;
+  margin-top: 12px;
+  transition: background 0.2s;
+  width: 358px;
+  height: 64px;
+}
+
+.modal-btn.secondary {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  background: transparent;
+  color: #2f71e5;
+  box-shadow: none;
+  border: none;
+  font-weight: 400;
+  margin-top: 0;
+}
+
+.modal-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(47, 113, 229, 1);
+  line-height: 1.2;
+  margin-bottom: 2px; /* reduce space below label */
+  margin-top: 0;
+  height: 16px; /* ensure label is not too tall */
+  display: block;
+  padding-left: 36px; /* add this */
+  top: 88px;
+}
+
+.modal-btn,
+.modal-btn.secondary {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.modal-input:focus,
+.modal-input:not(:placeholder-shown) {
+  color: #111;
+}
+
+.modal-btn.active {
+  background: #2f71e5;
+  color: #fff;
+  cursor: pointer;
+}
+
+.input-error {
+  color: rgba(255, 0, 0, 1);
+  font-size: 12px;
+  margin-left: 36px;
+
+}
+
+.modal-btn.secondary:focus {
+  outline: none;
+  box-shadow: none;
+}
+

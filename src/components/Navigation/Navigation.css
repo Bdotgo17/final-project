@@ -67,11 +67,31 @@
 }
 
 .sign-in-btn {
-  background: none;
-  border: none;
-  color: #2f71e5;
-  font: inherit;
+  border: 2px solid #fff;
+  border-radius: 999px; /* Makes it an oval */
+  width: 176px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 28px;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  font-size: 1.1rem;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+  box-sizing: border-box;
+  margin-right: 104px;
   cursor: pointer;
-  text-decoration: underline;
-  padding: 0;
+}
+
+.sign-in-btn:hover,
+.sign-in-btn:active,
+.sign-in-btn:focus {
+  background: transparent;
+  color: #fff;
+  outline: none;
+  border-color: #fff;
 }

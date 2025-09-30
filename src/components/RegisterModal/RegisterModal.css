@@ -1,3 +1,64 @@
-.RegisterModal {
-  /* RegisterModal styles go here */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 80px; /* Adjust this value as needed */
+  align-items: flex-start;
 }
+
+.input-error {
+  color: rgba(255, 0, 0, 1);
+  font-size: 12px;
+  margin-left: 36px;
+  margin-top: 2px;
+  margin-bottom: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+}
+
+.ModalWithForm.register-modal-form {
+  width: 430px !important;
+  height: 458px !important;
+  min-height: 458px !important;
+  max-height: 458px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.modal-title {
+  white-space: normal; /* allow wrapping */
+  text-align: left;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0px 0 0 0px; /* match your modal spacing */
+  width: 358px; /* or 100% minus padding if you want */
+  line-height: 1.2;
+}
+
+.success-signin-btn {
+  position: absolute;
+  left: 36px;
+  bottom: 24px;
+  background: none;
+  border: none;
+  color: #2f71e5;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0px 0 0 36px;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.ModalWithForm.register-modal-form.success {
+  height: 182px !important;
+  min-height: 182px !important;
+  max-height: 182px !important;
+}
+

@@ -1,7 +1,8 @@
 import "./ModalWithForm.css";
 import { useEffect } from "react";
+import closeIcon from "../../assets/close.svg";
 
-function ModalWithForm({ isOpen, onClose, children }) {
+function ModalWithForm({ isOpen, onClose, className = "", children }) {
   useEffect(() => {
     if (!isOpen) return;
     function handleEsc(e) {
@@ -19,13 +20,13 @@ function ModalWithForm({ isOpen, onClose, children }) {
 
   return (
     <div className="ModalWithForm__overlay" onClick={handleOverlayClick}>
-      <div className="ModalWithForm">
+      <div className={`ModalWithForm ${className}`}>
         <button
           className="ModalWithForm__close"
           onClick={onClose}
           aria-label="Close"
         >
-          &times;
+          <img src={closeIcon} alt="Close" />
         </button>
         {children}
       </div>

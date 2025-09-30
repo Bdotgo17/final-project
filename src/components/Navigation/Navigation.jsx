@@ -1,7 +1,7 @@
 import "./Navigation.css";
 import { Link } from "react-router-dom";
 
-function Navigation({ showSavedLink }) {
+function Navigation({ showSavedLink, onSignIn }) {
   return (
     <nav className="Navigation">
       <ul>
