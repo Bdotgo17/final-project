@@ -1,12 +1,3 @@
-.register-form {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 24px; /* or 0 if you want the spacing controlled by the title */
-  align-items: flex-start;
-  padding-left: 0px; /* align with modal-title */
-  width: 100%;
-}
 
 .input-error {
   color: rgba(255, 0, 0, 1);
@@ -39,10 +30,20 @@
   font-size: 20px;
   font-weight: 900;
   font-family: "Roboto", sans-serif;
-  margin: 0px 0 0 0px;
+  margin: 32px 0 0 32px; /* top and left margin */
   width: 358px; /* or 100% minus padding if you want */
   line-height: 1.2;
-  height: 32px;
+  height: auto;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px; /* or 0 if you want the spacing controlled by the title */
+  align-items: flex-start;
+  padding-left: 32px; /* align with modal-title */
+  width: 100%;
 }
 
 .success-signin-btn {
