@@ -19,6 +19,9 @@ function Main({
   showCount,
   onShowMore,
   showSavedLink,
+  user,
+  setUser,
+  onSignIn,
 }) {
   // Track if a search has been made
   const [hasSearched, setHasSearched] = useState(false);
@@ -57,6 +60,11 @@ function Main({
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
+  function handleSignIn(username) {
+    setUser({ username });
+    setIsLoginOpen(false);
+  }
+
   return (
     <>
       <main className="Main">
@@ -65,8 +73,9 @@ function Main({
           style={{ background: `url(${georgia}) center/cover no-repeat` }}
         >
           <Header
+            user={user}
             showSavedLink={showSavedLink}
-            onSignIn={() => setIsLoginOpen(true)}
+            onSignIn={onSignIn}
           />{" "}
           <section className="hero-section">
             <SearchForm onSearch={handleSearch} />

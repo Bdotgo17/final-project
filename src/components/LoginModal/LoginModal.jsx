@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./LoginModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function LoginModal({ isOpen, onClose, onRegisterClick }) {
+function LoginModal({ isOpen, onClose, onRegisterClick, onSignIn }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailTouched, setEmailTouched] = useState(false);
@@ -14,14 +14,24 @@ function LoginModal({ isOpen, onClose, onRegisterClick }) {
 
   const isActive = isValidEmail(email) && password.trim() !== "";
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    // Replace with real logic
+    const username = email.split("@")[0]; // or however you get the username
+    onSignIn(username);
+    onClose();
+  }
+
+  if (!isOpen) return null;
+
   return (
     <ModalWithForm isOpen={isOpen} onClose={onClose}>
       <h2 className="modal-title">Sign In</h2>
-      <form className="login-form">
+      <form className="login-form" onSubmit={handleSubmit}>
+        {" "}
         <label className="modal-label" htmlFor="login-email">
           Email
         </label>
-
         <input
           id="login-email"
           type="email"
@@ -38,7 +48,6 @@ function LoginModal({ isOpen, onClose, onRegisterClick }) {
         <label className="modal-label" htmlFor="login-password">
           Password
         </label>
-
         <input
           id="login-password"
           type="password"

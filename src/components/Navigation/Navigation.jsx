@@ -1,7 +1,7 @@
 import "./Navigation.css";
 import { Link } from "react-router-dom";
 
-function Navigation({ showSavedLink, onSignIn }) {
+function Navigation({ showSavedLink, onSignInClick, user, onSignIn }) {
   return (
     <nav className="Navigation">
       <ul>
@@ -14,9 +14,13 @@ function Navigation({ showSavedLink, onSignIn }) {
           </li>
         )}
         <li>
-          <button className="sign-in-btn" onClick={onSignIn}>
-            Sign in
-          </button>
+          {user ? (
+            <button className="modal-btn">{user.username}</button>
+          ) : (
+            <button className="sign-in-btn" onClick={onSignInClick}>
+              Sign in
+            </button>
+          )}
         </li>
       </ul>
     </nav>
