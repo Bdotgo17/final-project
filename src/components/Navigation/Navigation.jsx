@@ -15,9 +15,9 @@ function Navigation({ showSavedLink, onSignInClick, user, onSignIn }) {
         )}
         <li>
           {user ? (
-            <button className="modal-btn">{user.username}</button>
+            <button className="sign-in-btn">{user.username}</button>
           ) : (
-            <button className="sign-in-btn" onClick={onSignInClick}>
+            <button className="sign-in-btn" onClick={onSignIn}>
               Sign in
             </button>
           )}

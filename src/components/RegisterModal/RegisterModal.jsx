@@ -17,13 +17,11 @@ function RegisterModal({ isOpen, onClose, onLoginClick }) {
   // Simulate checking if email is taken (replace with real check)
   function handleSubmit(e) {
     e.preventDefault();
-    // Example: if email is "test@used.com", show error
-    if (email === "test@used.com") {
-      setEmailTaken(true);
-    } else {
-      setEmailTaken(false);
-      setRegistrationSuccess(true); // Show success message
-    }
+    console.log("Sign Up clicked", { email, username, password });
+
+    // Save to localStorage for demo
+    localStorage.setItem("user", JSON.stringify({ email, username, password }));
+    setRegistrationSuccess(true);
   }
 
   return (

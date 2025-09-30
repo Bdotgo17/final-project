@@ -95,3 +95,32 @@
   outline: none;
   border-color: #fff;
 }
+
+.modal-btn {
+  border: 2px solid #fff;
+  border-radius: 999px;
+  width: 176px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 28px;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+  box-sizing: border-box;
+  margin-right: 104px;
+  cursor: pointer;
+}
+
+.modal-btn:hover,
+.modal-btn:active,
+.modal-btn:focus {
+  background: transparent;
+  color: #fff;
+  outline: none;
+  border-color: #fff;
+}

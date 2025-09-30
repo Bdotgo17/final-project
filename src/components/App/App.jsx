@@ -51,7 +51,7 @@ function App() {
   }
 
   function handleSignIn(username) {
-    setUser({ username }); // or setUser({ username: ... }) if you have more info
+    setUser({ username }); 
     setIsLoginOpen(false);
   }
 

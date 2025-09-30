@@ -16,10 +16,15 @@ function LoginModal({ isOpen, onClose, onRegisterClick, onSignIn }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // Replace with real logic
-    const username = email.split("@")[0]; // or however you get the username
-    onSignIn(username);
-    onClose();
+    // Get user from localStorage
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user && user.email === email && user.password === password) {
+      onSignIn(user.username);
+      onClose();
+    } else {
+      // handle error (user not found or wrong email)
+      // e.g., set an error state and show a message
+    }
   }
 
   if (!isOpen) return null;
