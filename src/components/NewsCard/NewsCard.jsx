@@ -1,10 +1,6 @@
 import "./NewsCard.css";
 import { useState } from "react";
 
-// Placeholder: replace with real auth/saved logic
-const isLoggedIn = false;
-const isSaved = false;
-
 function formatDate(dateStr) {
   const date = new Date(dateStr);
   return date.toLocaleDateString("en-US", {
@@ -14,13 +10,16 @@ function formatDate(dateStr) {
   });
 }
 
-function NewsCard({ article }) {
+function NewsCard({ article, isSaved, onSave, isLoggedIn }) {
   const [showTooltip, setShowTooltip] = useState(false);
 
   function handleSaveClick(e) {
     e.preventDefault();
-    if (!isLoggedIn) return;
-    // Add save/unsave logic here
+    if (!isLoggedIn) {
+      setShowTooltip(true);
+      return;
+    }
+    onSave(article);
   }
 
   return (
@@ -34,21 +33,19 @@ function NewsCard({ article }) {
           />
         )}
         <button
-          className={`save-icon${isLoggedIn ? " active" : ""}${
-            isSaved ? " saved" : ""
-          }`}
+          className={`save-icon${isSaved ? " saved" : ""}`}
           onClick={handleSaveClick}
           onMouseEnter={() => !isLoggedIn && setShowTooltip(true)}
           onMouseLeave={() => setShowTooltip(false)}
-          aria-label="Save article"
+          aria-label={isSaved ? "Unsave article" : "Save article"}
         >
           {/* SVG or icon for save */}
           <svg
             width="24"
             height="24"
             viewBox="0 0 24 24"
-            fill={isSaved ? "#2F71E5" : "none"}
-            stroke="#2F71E5"
+            stroke="currentColor"
+            fill="currentColor"
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"

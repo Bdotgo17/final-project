@@ -136,3 +136,22 @@
 .nav-link.active[data-underline="saved"]::after {
   width: 178px;
 }
+
+.Navigation .nav-link,
+.Navigation .sign-in-btn {
+  color: #fff;
+}
+
+.header-dark .nav-link,
+.header-dark .sign-in-btn {
+  color: #111 !important;
+}
+
+.header-dark .nav-link.active::after {
+  background: #111 !important;
+}
+
+/* Username button (sign-in-btn) black oval in dark header */
+.header-dark .sign-in-btn {
+  border-color: #111 !important;
+}

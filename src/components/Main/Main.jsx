@@ -28,6 +28,8 @@ function Main({
   // Track if a search has been made
   const [hasSearched, setHasSearched] = useState(false);
   const [showPreloader, setShowPreloader] = useState(false);
+  const [showMoreActive, setShowMoreActive] = useState(false);
+  const [savedArticles, setSavedArticles] = useState([]);
 
   function handleSearch(query) {
     setHasSearched(true);
@@ -39,8 +41,6 @@ function Main({
     }, 5000); // 5 seconds
   }
 
-  const [showMoreActive, setShowMoreActive] = useState(false);
-
   function handleShowMoreClick() {
     setShowMoreActive(true);
     onShowMore();
@@ -51,6 +51,17 @@ function Main({
   function handleSignIn(username) {
     setUser({ username });
     setIsLoginOpen(false);
+  }
+
+  function handleSaveArticle(article) {
+    setSavedArticles((prev) => {
+      // If already saved, remove it (unsave)
+      if (prev.some((a) => a.url === article.url)) {
+        return prev.filter((a) => a.url !== article.url);
+      }
+      // If not saved, add it
+      return [...prev, article];
+    });
   }
 
   return (
@@ -78,7 +89,13 @@ function Main({
                 <h2 className="results-title">Search results</h2>
                 <div className="news-cards-list">
                   {articles.slice(0, showCount).map((article, idx) => (
-                    <NewsCard key={idx} article={article} />
+                    <NewsCard
+                      key={idx}
+                      article={article}
+                      isSaved={savedArticles.some((a) => a.url === article.url)}
+                      onSave={handleSaveArticle}
+                      isLoggedIn={!!user}
+                    />
                   ))}
                 </div>
                 {showCount < articles.length && (
@@ -151,7 +168,7 @@ function Main({
           setIsRegisterOpen(true);
         }}
         onSignIn={handleSignIn}
-        setUser={setUser} 
+        setUser={setUser}
       />
       <RegisterModal
         isOpen={isRegisterOpen}

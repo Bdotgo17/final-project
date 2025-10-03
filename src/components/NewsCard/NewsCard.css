@@ -3,7 +3,7 @@
   height: 576px;
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -75,18 +75,29 @@
   padding: 8px;
   cursor: pointer;
   z-index: 2;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: box-shadow 0.2s;
+  transition: color 0.2s;
 }
 
 .save-icon:hover {
-  box-shadow: 0 4px 16px rgba(47,113,229,0.15);
+  box-shadow: 0 4px 16px rgba(47, 113, 229, 0.15);
 }
 
 .save-icon svg {
   stroke: #b6bcbf;
   fill: none;
+  transition: stroke 0.2s, fill 0.2s;
+}
+
+.save-icon.saved svg {
+  stroke: #2F71E5;
+  fill: #2F71E5;
+}
+
+.save-icon:focus {
+  outline: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* or your preferred shadow */
 }

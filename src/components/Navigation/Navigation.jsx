@@ -1,11 +1,11 @@
 import "./Navigation.css";
 import { Link, useLocation } from "react-router-dom";
 
-function Navigation({ showSavedLink, user, onSignIn }) {
+function Navigation({ showSavedLink, user, onSignIn, isDark }) {
   const location = useLocation();
 
   return (
-    <nav className="Navigation">
+    <nav className={`Navigation ${isDark ? "header-dark" : ""}`}>
       <ul>
         <li>
           <Link

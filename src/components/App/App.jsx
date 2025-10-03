@@ -77,6 +77,7 @@ function App() {
                   user={user}
                   showSavedLink={showSavedLink}
                   onSignIn={() => setIsLoginOpen(true)}
+                  theme="dark" 
                 />
                 <SavedNews user={user} savedArticles={savedArticles} />
               </>
