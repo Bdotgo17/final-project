@@ -2,10 +2,11 @@ import { useState } from "react";
 import "./LoginModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function LoginModal({ isOpen, onClose, onRegisterClick, onSignIn }) {
+function LoginModal({ isOpen, onClose, onRegisterClick, onSignIn, setUser }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailTouched, setEmailTouched] = useState(false);
+  const [loginError, setLoginError] = useState("");
 
   // Simple email validation regex
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -19,11 +20,12 @@ function LoginModal({ isOpen, onClose, onRegisterClick, onSignIn }) {
     // Get user from localStorage
     const user = JSON.parse(localStorage.getItem("user"));
     if (user && user.email === email && user.password === password) {
+      setUser({ username: user.username }); // <-- Set the user here!
+
       onSignIn(user.username);
       onClose();
     } else {
-      // handle error (user not found or wrong email)
-      // e.g., set an error state and show a message
+      setLoginError("Incorrect email or password.");
     }
   }
 
@@ -61,6 +63,8 @@ function LoginModal({ isOpen, onClose, onRegisterClick, onSignIn }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        {loginError && <span className="input-error">{loginError}</span>}
+
         <button
           type="submit"
           className={`modal-btn${isActive ? " active" : ""}`}

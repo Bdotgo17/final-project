@@ -1,16 +1,36 @@
 import "./Navigation.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-function Navigation({ showSavedLink, onSignInClick, user, onSignIn }) {
+function Navigation({ showSavedLink, user, onSignIn }) {
+  const location = useLocation();
+
   return (
     <nav className="Navigation">
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link
+            to="/"
+            className={
+              location.pathname === "/" ? "nav-link active" : "nav-link"
+            }
+            data-underline="home"
+          >
+            Home
+          </Link>{" "}
         </li>
-        {showSavedLink && (
+        {user && (
           <li>
-            <Link to="/saved-news">Saved Articles</Link>
+            <Link
+              to="/saved-news"
+              className={
+                location.pathname === "/saved-news"
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+              data-underline="saved"
+            >
+              Saved Articles
+            </Link>
           </li>
         )}
         <li>

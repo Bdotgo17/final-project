@@ -5,7 +5,6 @@ import Preloader from "../Preloader/Preloader";
 import NewsCard from "../NewsCard/NewsCard";
 import georgia from "../../assets/georgia.svg";
 import { useState } from "react";
-console.log(georgia);
 import authorImg from "../../assets/author.jpg";
 import nothingFoundImg from "../../assets/nothing-found.svg";
 import LoginModal from "../LoginModal/LoginModal";
@@ -21,8 +20,11 @@ function Main({
   showSavedLink,
   user,
   setUser,
-  onSignIn,
 }) {
+  // Modal state
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+
   // Track if a search has been made
   const [hasSearched, setHasSearched] = useState(false);
   const [showPreloader, setShowPreloader] = useState(false);
@@ -46,20 +48,6 @@ function Main({
     // setTimeout(() => setShowMoreActive(false), 200);
   }
 
-  console.log(
-    "loading:",
-    loading,
-    "error:",
-    error,
-    "articles:",
-    articles,
-    "hasSearched:",
-    hasSearched
-  );
-
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
-  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
-
   function handleSignIn(username) {
     setUser({ username });
     setIsLoginOpen(false);
@@ -75,7 +63,7 @@ function Main({
           <Header
             user={user}
             showSavedLink={showSavedLink}
-            onSignIn={onSignIn}
+            onSignIn={() => setIsLoginOpen && setIsLoginOpen(true)}
           />{" "}
           <section className="hero-section">
             <SearchForm onSearch={handleSearch} />
@@ -162,6 +150,8 @@ function Main({
           setIsLoginOpen(false);
           setIsRegisterOpen(true);
         }}
+        onSignIn={handleSignIn}
+        setUser={setUser} 
       />
       <RegisterModal
         isOpen={isRegisterOpen}
