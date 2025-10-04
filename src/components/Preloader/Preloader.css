@@ -38,7 +38,7 @@
 }
 .NewsCard {
   width: 400px;
-  height: 420px;
+  height: 576px;
 }
 
 /* Tablet: 3 columns, 224px cards */
@@ -46,7 +46,7 @@
   .news-cards-list {
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
-    margin: 40px auto 0 auto;
+    margin: 0px auto 0 auto;
   }
   .NewsCard {
     width: 224px;
@@ -55,13 +55,13 @@
 }
 
 /* Mobile: 1 column, 288px cards */
-@media (max-width: 600px) {
+@media (max-width: 320px) {
   .news-cards-list {
     grid-template-columns: 1fr;
-    margin: 40px 8px 0 8px;
+    margin: 0 auto 0 auto;
   }
   .NewsCard {
     width: 288px;
-    height: 420px;
+    height: 440px;
   }
 }

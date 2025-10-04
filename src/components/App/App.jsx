@@ -18,32 +18,6 @@ function App() {
   const [savedArticles, setSavedArticles] = useState([]);
   const navigate = useNavigate();
 
-  async function handleSearch(query) {
-    if (!query) {
-      setError("Please enter a keyword");
-      setArticles([]);
-      return;
-    }
-    setLoading(true);
-    setError("");
-    setArticles([]);
-    try {
-      const data = await fetchNews(query);
-      if (data.articles && data.articles.length > 0) {
-        setArticles(data.articles);
-        setShowCount(3);
-      } else {
-        setError("Nothing Found");
-      }
-    } catch (err) {
-      setError(
-        "Sorry, something went wrong during the request. Please try again later."
-      );
-    } finally {
-      setLoading(false);
-    }
-  }
-
   function handleShowMore() {
     setShowCount((prev) => prev + 3);
   }
@@ -62,12 +36,10 @@ function App() {
           element={
             <>
               <Main
-                onSearch={handleSearch}
                 articles={articles}
                 loading={loading}
                 error={error}
                 showCount={showCount}
-                onShowMore={handleShowMore}
                 showSavedLink={showSavedLink}
                 user={user}
                 setUser={setUser}

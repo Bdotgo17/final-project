@@ -1,3 +1,4 @@
+/* ===== Desktop (default) ===== */
 .header {
   width: 100%;
   max-width: 1440px;
@@ -20,8 +21,9 @@
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-end; /* Push navigation to the right */
+  justify-content: flex-end;
   margin: 0 auto;
+  padding: 0;
 }
 
 .header-title {
@@ -30,7 +32,7 @@
   font-weight: 700;
   font-size: 20px;
   margin-left: 104px;
-  margin-right: auto; /* Pushes navigation to the right */
+  margin-right: auto;
   letter-spacing: 0.5px;
   display: flex;
   align-items: center;
@@ -40,50 +42,76 @@
 .header-dark,
 .header.header-dark .header-title {
   background: #fff;
-  color: #111;
-}
-
-.header-dark .header-title {
-  color: #111;
-}
-
-.header-dark .header-title {
   color: #111 !important;
 }
 
-.HeroWrapper {
+/* ===== Hero Wrapper ===== */
+.hero-wrapper {
   width: 100%;
-  max-width: 712px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 40px 104px 0 104px;
   box-sizing: border-box;
 }
 
+/* ===== About Author Section ===== */
+.AboutAuthor {
+  width: 100%;
+  max-width: 712px;
+  margin: 0 auto;
+  padding: 40px 104px;
+  box-sizing: border-box;
+}
+
+/* ===== Tablet (≤1440px) ===== */
+@media (max-width: 1440px) {
+  .hero-wrapper {
+    max-width: 100%;
+    padding: 32px 24px 0 24px;
+  }
+  .about-author {
+    max-width: 100%;
+    padding: 32px 24px 0 24px;
+  }
+}
+
+/* ===== Tablet (≤768px) ===== */
 @media (max-width: 768px) {
   .header {
+    width: 100%;
     max-width: 768px;
     height: 66px;
+    padding: 0;
   }
 
   .header-content {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 12px 16px;
+    width: 100%;
+    max-width: 768px;
+    height: 100%;
+    flex-direction: row; /* or column if you want stacked */
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    margin: 0 auto;
   }
+
   .header-title {
     font-size: 20px;
     margin-left: 0;
     margin-bottom: 8px;
+    margin-right: auto;
   }
+
   .nav-link[data-underline="home"] {
     width: 64px;
     height: 24px;
+    font-size: 16px;
     padding: 0;
-    font-size: 16px; /* adjust as needed */
     display: inline-flex;
     align-items: center;
     justify-content: center;
   }
+
   .sign-in-btn {
     width: 152px;
     height: 40px;
@@ -98,57 +126,63 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-left: 40px;
+    margin-left: 0;
+    margin-right: 40px;
   }
 
+  .hero-wrapper {
+    width: 768px;
+    height: 334px;
+    max-width: 100%;
+    padding: 24px 16px 0 16px;
+  }
+
+  .AboutAuthor {
+    padding: 24px 16px;
+  }
+
+  /* Remove right margin from Home button */
+  .Navigation li:first-child {
+    margin-right: 0;
+  }
+
+  /* Add 16px gap between Home and Sign In */
+  .Navigation ul {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
 }
 
-@media (max-width: 480px) {
+/* ===== Mobile (≤320px) ===== */
+@media (max-width: 320px) {
   .header-content {
     padding: 12px 8px;
     gap: 8px;
   }
+
   .header-title {
     font-size: 20px;
     margin-bottom: 8px;
   }
+
   .Navigation ul {
-    flex-direction: column;
-    gap: 8px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
   }
-}
 
-@media (max-width: 1024px) {
-  .HeroWrapper {
-    max-width: 100%;
-    padding: 32px 24px 0 24px;
-  }
-}
-
-@media (max-width: 768px) {
-  .HeroWrapper {
-    padding: 24px 16px 0 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .HeroWrapper {
+  .hero-wrapper {
     padding: 16px 8px 0 8px;
+    width: 100%;
+    height: auto;
   }
-}
 
-/* About Author section */
-.AboutAuthor {
-  width: 100%;
-  max-width: 712px;
-  margin: 0 auto;
-  padding: 40px 104px;
-  box-sizing: border-box;
-}
-
-@media (max-width: 1024px) {
   .AboutAuthor {
-    max-width: 100%;
-    padding: 32px 24px;
+    padding: 16px 8px;
   }
 }

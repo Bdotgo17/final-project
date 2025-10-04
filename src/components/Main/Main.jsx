@@ -9,14 +9,9 @@ import authorImg from "../../assets/author.jpg";
 import nothingFoundImg from "../../assets/nothing-found.svg";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
+import { fetchNews } from "../../utils/newsApi"; // Make sure this import is present
 
 function Main({
-  onSearch,
-  articles,
-  loading,
-  error,
-  showCount,
-  onShowMore,
   showSavedLink,
   user,
   setUser,
@@ -32,23 +27,38 @@ function Main({
   const [hasSearched, setHasSearched] = useState(false);
   const [showPreloader, setShowPreloader] = useState(false);
   const [showMoreActive, setShowMoreActive] = useState(false);
-
   const [currentKeyword, setCurrentKeyword] = useState("");
+  const [articles, setArticles] = useState([]);
+  const [error, setError] = useState("");
+  const [showCount, setShowCount] = useState(3);
 
-  function handleSearch(query) {
+  async function handleSearch(query) {
     setHasSearched(true);
     setShowPreloader(true);
-    onSearch(query);
     setCurrentKeyword(query);
+    setError("");
+    setArticles([]);
 
-    setTimeout(() => {
-      setShowPreloader(false);
-    }, 5000); // 5 seconds
+    try {
+      const data = await fetchNews(query);
+      if (data.articles && data.articles.length > 0) {
+        setArticles(data.articles);
+        setShowCount(3);
+      } else {
+        setError("Nothing Found");
+      }
+    } catch (err) {
+      setError(
+        "Sorry, something went wrong during the request. Please try again later."
+      );
+    } finally {
+      setTimeout(() => setShowPreloader(false), 3000); // Only one loader, for 5 seconds
+    }
   }
 
   function handleShowMoreClick() {
     setShowMoreActive(true);
-    onShowMore();
+    setShowCount((prev) => prev + 3); // <-- increment local showCount
     // Optionally, set back to false after a delay if you want the color to revert
     // setTimeout(() => setShowMoreActive(false), 200);
   }
@@ -90,7 +100,7 @@ function Main({
         {/* Conditionally render results-block only after a search */}
         {hasSearched && (
           <section className="results-block">
-            {!loading && !error && articles && articles.length > 0 && (
+            {!showPreloader && !error && articles && articles.length > 0 && (
               <>
                 <h2 className="results-title">Search results</h2>
                 <div className="news-cards-list">
@@ -124,9 +134,11 @@ function Main({
               </div>
             )}
 
-            {!loading && error && <div className="results-error">{error}</div>}
+            {!showPreloader && error && (
+              <div className="results-error">{error}</div>
+            )}
 
-            {!loading &&
+            {!showPreloader &&
               articles &&
               articles.length === 0 &&
               (!error || error === "Nothing Found") && (

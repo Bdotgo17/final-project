@@ -155,3 +155,25 @@
 .header-dark .sign-in-btn {
   border-color: #111 !important;
 }
+
+@media (max-width: 768px) {
+  /* Remove right margin from Home button */
+  .Navigation li:first-child {
+    margin-right: 0;
+  }
+
+  /* Add 16px gap between Home and Sign In */
+  .Navigation ul {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Sign In button: 40px from right edge */
+  .sign-in-btn {
+    margin-left: 0;
+    margin-right: 40px;
+  }
+}
