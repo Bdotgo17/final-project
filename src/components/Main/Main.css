@@ -1,5 +1,6 @@
 .Main {
-  width: 1440px;
+  width: 100%;
+  max-width: 1440px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -31,7 +32,8 @@
 }
 
 .about-author {
-  width: 1440px;
+  width: 100%;
+  max-width: 1440px;
   height: 624px;
   margin: 0 auto;
   background: #fff;
@@ -101,12 +103,6 @@
   padding-left: 0;
 }
 
-.news-cards-list {
-  display: flex;
-  gap: 32px;
-  margin-bottom: 32px;
-}
-
 .show-more-btn {
   width: 200px;
   height: 48px;
@@ -135,7 +131,7 @@
   min-height: 400px;
   padding: 64px 0;
   text-align: center;
-  align-self: center; 
+  align-self: center;
 }
 
 .nothing-found-img {
@@ -175,4 +171,80 @@
   color: #213547;
   font-family: "Roboto", sans-serif;
   opacity: 0.8;
+}
+
+.news-cards-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 40px auto 0 auto;
+}
+
+/* Desktop: 3 columns, 400px cards */
+.NewsCard {
+  width: 400px;
+  height: 420px;
+}
+
+@media (max-width: 1024px) {
+  .hero-wrapper,
+  .about-author {
+    max-width: 100%;
+    padding: 32px 24px;
+  }
+}
+
+@media (width: 768px) {
+  .hero-wrapper {
+    width: 768px;
+    height: 334px;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .news-cards-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 40px auto 0 auto;
+  }
+  .NewsCard {
+    width: 224px;
+    height: 420px;
+  }
+  .hero-wrapper,
+  .about-author {
+    padding: 24px 16px;
+    flex-direction: column;
+    height: auto;
+    gap: 24px;
+  }
+  .author-image {
+    width: 220px;
+    height: 220px;
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 320px) {
+  .news-cards-list {
+    grid-template-columns: 1fr;
+    margin: 40px 8px 0 8px;
+  }
+  .NewsCard {
+    width: 288px;
+    height: 440px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-wrapper,
+  .about-author {
+    padding: 16px 8px;
+  }
+  .author-info h2 {
+    font-size: 24px;
+  }
+  .author-info p {
+    font-size: 14px;
+  }
 }

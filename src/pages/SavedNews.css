@@ -37,19 +37,28 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  margin: 40px 104px 0 104px; /* match your left padding */
+  margin: 40px auto 0 auto;
 }
 
-@media (max-width: 900px) {
+@media (width: 768px) {
   .news-cards-list {
-    grid-template-columns: repeat(2, 1fr);
-    margin: 40px 24px 0 24px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 40px auto 0 auto;
+  }
+  .NewsCard {
+    width: 224px;
+    height: 420px;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 320px) {
   .news-cards-list {
     grid-template-columns: 1fr;
     margin: 40px 8px 0 8px;
+  }
+  .NewsCard {
+    width: 288px;
+    height: 440px;
   }
 }

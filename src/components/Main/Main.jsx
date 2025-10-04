@@ -65,7 +65,7 @@ function Main({
         return prev.filter((a) => a.url !== article.url);
       }
       // If not saved, add it
-    return [...prev, { ...article, keyword: currentKeyword }];
+      return [...prev, { ...article, keyword: currentKeyword }];
     });
   }
 

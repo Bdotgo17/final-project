@@ -1,16 +1,17 @@
 .header {
-  width: 1440px;
-  background: #f5f5f5;
-  background: transparent; /* Make background clear */
-  position: absolute; 
+  width: 100%;
+  max-width: 1440px;
+  height: 80px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 100;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
-  display: flex;
-  align-items: center;
-  height: 80px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* White, 20% opacity */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .header-content {
@@ -20,7 +21,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end; /* Push navigation to the right */
-  margin: auto;
+  margin: 0 auto;
 }
 
 .header-title {
@@ -50,7 +51,20 @@
   color: #111 !important;
 }
 
+.HeroWrapper {
+  width: 100%;
+  max-width: 712px;
+  margin: 0 auto;
+  padding: 40px 104px 0 104px;
+  box-sizing: border-box;
+}
+
 @media (max-width: 768px) {
+  .header {
+    max-width: 768px;
+    height: 66px;
+  }
+
   .header-content {
     flex-direction: column;
     align-items: flex-start;
@@ -58,13 +72,39 @@
   }
   .header-title {
     font-size: 20px;
+    margin-left: 0;
+    margin-bottom: 8px;
   }
+  .nav-link[data-underline="home"] {
+    width: 64px;
+    height: 24px;
+    padding: 0;
+    font-size: 16px; /* adjust as needed */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sign-in-btn {
+    width: 152px;
+    height: 40px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 40px;
+  }
+
 }
 
 @media (max-width: 480px) {
   .header-content {
-    flex-direction: column;
-    align-items: flex-start;
     padding: 12px 8px;
     gap: 8px;
   }
@@ -75,5 +115,40 @@
   .Navigation ul {
     flex-direction: column;
     gap: 8px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .HeroWrapper {
+    max-width: 100%;
+    padding: 32px 24px 0 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .HeroWrapper {
+    padding: 24px 16px 0 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .HeroWrapper {
+    padding: 16px 8px 0 8px;
+  }
+}
+
+/* About Author section */
+.AboutAuthor {
+  width: 100%;
+  max-width: 712px;
+  margin: 0 auto;
+  padding: 40px 104px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .AboutAuthor {
+    max-width: 100%;
+    padding: 32px 24px;
   }
 }

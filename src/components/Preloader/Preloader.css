@@ -28,3 +28,40 @@
     transform: rotate(360deg);
   }
 }
+
+/* Desktop: 3 columns, 400px cards */
+.news-cards-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 40px auto 0 auto;
+}
+.NewsCard {
+  width: 400px;
+  height: 420px;
+}
+
+/* Tablet: 3 columns, 224px cards */
+@media (width: 768px) {
+  .news-cards-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 40px auto 0 auto;
+  }
+  .NewsCard {
+    width: 224px;
+    height: 420px;
+  }
+}
+
+/* Mobile: 1 column, 288px cards */
+@media (max-width: 600px) {
+  .news-cards-list {
+    grid-template-columns: 1fr;
+    margin: 40px 8px 0 8px;
+  }
+  .NewsCard {
+    width: 288px;
+    height: 420px;
+  }
+}

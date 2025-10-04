@@ -6,15 +6,16 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0.5); /* dark overlay */
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   z-index: 1000; /* high value to overlay everything */
-  padding-top: 207px; /* space from the top */
+  padding-top: 0px; /* space from the top */
 }
 
 .ModalWithForm {
   background: #fff;
-  width: 430px;
+  max-width: 430px;
+  width: 100%;
   height: auto;
   border-radius: 12px;
   box-shadow: 0 4px 32px rgba(0, 0, 0, 0.15);
@@ -48,13 +49,13 @@
 
 /* Responsive modal styles */
 @media (max-width: 768px) {
-  .modal {
+  .ModalWithForm {
     width: 90vw;
     padding: 16px;
   }
 }
 @media (max-width: 400px) {
-  .modal {
+  .ModalWithForm {
     width: 98vw;
     padding: 8px;
   }
