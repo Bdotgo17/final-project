@@ -3,7 +3,7 @@ import "./Header.css";
 import { useLocation } from "react-router-dom";
 import Navigation from "../Navigation/Navigation";
 
-function Header({ showSavedLink, onSignInClick, user, onSignIn }) {
+function Header({ showSavedLink, onSignInClick, user, onSignIn, onLogout }) {
   const location = useLocation();
   const isDark = location.pathname === "/saved-news";
 
@@ -16,6 +16,7 @@ function Header({ showSavedLink, onSignInClick, user, onSignIn }) {
           onSignIn={onSignIn}
           user={user}
           isDark={isDark}
+          onLogout={onLogout}
         />
       </div>
     </header>

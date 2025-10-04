@@ -1,5 +1,5 @@
 import "./App.css";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import SavedNews from "../../pages/SavedNews";
@@ -16,6 +16,7 @@ function App() {
 
   const showSavedLink = articles.length > 0;
   const [savedArticles, setSavedArticles] = useState([]);
+  const navigate = useNavigate();
 
   async function handleSearch(query) {
     if (!query) {
@@ -47,46 +48,54 @@ function App() {
     setShowCount((prev) => prev + 3);
   }
 
+  function handleLogout() {
+    setUser(null); // Log out the user
+    // Optionally clear savedArticles or other state here
+    navigate("/"); // Redirect to home page
+  }
+
   return (
-    <Router>
-      <div className="App">
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Main
-                  onSearch={handleSearch}
-                  articles={articles}
-                  loading={loading}
-                  error={error}
-                  showCount={showCount}
-                  onShowMore={handleShowMore}
-                  showSavedLink={showSavedLink}
-                  user={user}
-                  setUser={setUser}
-                />
-              </>
-            }
-          />
-          <Route
-            path="/saved-news"
-            element={
-              <>
-                <Header
-                  user={user}
-                  showSavedLink={showSavedLink}
-                  onSignIn={() => setIsLoginOpen(true)}
-                  theme="dark" 
-                />
-                <SavedNews user={user} savedArticles={savedArticles} />
-              </>
-            }
-          />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+    <div className="App">
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Main
+                onSearch={handleSearch}
+                articles={articles}
+                loading={loading}
+                error={error}
+                showCount={showCount}
+                onShowMore={handleShowMore}
+                showSavedLink={showSavedLink}
+                user={user}
+                setUser={setUser}
+                savedArticles={savedArticles}
+                setSavedArticles={setSavedArticles}
+                onLogout={handleLogout}
+              />
+            </>
+          }
+        />
+        <Route
+          path="/saved-news"
+          element={
+            <>
+              <Header
+                user={user}
+                showSavedLink={showSavedLink}
+                onSignIn={() => setIsLoginOpen(true)}
+                theme="dark"
+                onLogout={handleLogout}
+              />
+              <SavedNews user={user} savedArticles={savedArticles} />
+            </>
+          }
+        />
+      </Routes>
+      <Footer />
+    </div>
   );
 }
 

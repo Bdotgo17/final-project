@@ -1,7 +1,9 @@
 import "./Navigation.css";
 import { Link, useLocation } from "react-router-dom";
+import logoutIcon from "../../assets/logout.svg"; // Adjust the path if needed
+import whiteLogoutIcon from "../../assets/whiteLogout.svg"; // white icon
 
-function Navigation({ showSavedLink, user, onSignIn, isDark }) {
+function Navigation({ showSavedLink, user, onSignIn, onLogout, isDark }) {
   const location = useLocation();
 
   return (
@@ -35,7 +37,23 @@ function Navigation({ showSavedLink, user, onSignIn, isDark }) {
         )}
         <li>
           {user ? (
-            <button className="sign-in-btn">{user.username}</button>
+            <button className="sign-in-btn" onClick={onLogout}>
+              {user.username}
+              <span className="logout-icon" aria-label="Log out">
+                {/* Paste your SVG here */}
+                {/* Example SVG: */}
+                <img
+                  src={isDark ? logoutIcon : whiteLogoutIcon}
+                  alt="Log out"
+                  style={{
+                    marginLeft: "8px",
+                    verticalAlign: "middle",
+                    width: "18px",
+                    height: "18px",
+                  }}
+                />
+              </span>
+            </button>
           ) : (
             <button className="sign-in-btn" onClick={onSignIn}>
               Sign in

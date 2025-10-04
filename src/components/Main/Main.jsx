@@ -20,6 +20,9 @@ function Main({
   showSavedLink,
   user,
   setUser,
+  savedArticles,
+  setSavedArticles,
+  onLogout,
 }) {
   // Modal state
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -29,12 +32,14 @@ function Main({
   const [hasSearched, setHasSearched] = useState(false);
   const [showPreloader, setShowPreloader] = useState(false);
   const [showMoreActive, setShowMoreActive] = useState(false);
-  const [savedArticles, setSavedArticles] = useState([]);
+
+  const [currentKeyword, setCurrentKeyword] = useState("");
 
   function handleSearch(query) {
     setHasSearched(true);
     setShowPreloader(true);
     onSearch(query);
+    setCurrentKeyword(query);
 
     setTimeout(() => {
       setShowPreloader(false);
@@ -60,7 +65,7 @@ function Main({
         return prev.filter((a) => a.url !== article.url);
       }
       // If not saved, add it
-      return [...prev, article];
+    return [...prev, { ...article, keyword: currentKeyword }];
     });
   }
 
@@ -75,6 +80,7 @@ function Main({
             user={user}
             showSavedLink={showSavedLink}
             onSignIn={() => setIsLoginOpen && setIsLoginOpen(true)}
+            onLogout={onLogout}
           />{" "}
           <section className="hero-section">
             <SearchForm onSearch={handleSearch} />

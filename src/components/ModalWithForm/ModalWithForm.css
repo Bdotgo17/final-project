@@ -45,3 +45,17 @@
   height: 40px;
   display: block;
 }
+
+/* Responsive modal styles */
+@media (max-width: 768px) {
+  .modal {
+    width: 90vw;
+    padding: 16px;
+  }
+}
+@media (max-width: 400px) {
+  .modal {
+    width: 98vw;
+    padding: 8px;
+  }
+}

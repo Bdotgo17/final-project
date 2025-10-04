@@ -25,6 +25,9 @@ function NewsCard({ article, isSaved, onSave, isLoggedIn }) {
   return (
     <article className="NewsCard">
       <div className="news-card-header">
+        {article.keyword && (
+          <span className="news-card-keyword-label">{article.keyword}</span>
+        )}
         {article.urlToImage && (
           <img
             src={article.urlToImage}
