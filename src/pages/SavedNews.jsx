@@ -42,7 +42,10 @@ function SavedNews({ user, savedArticles = [] }) {
               key={idx}
               article={article}
               isSaved={true}
-              onSave={() => {}} // Optionally implement unsave here
+              isSavedSection={true} // <-- Add this line
+              onDelete={() => {
+                /* implement delete logic here */
+              }}
               isLoggedIn={!!user}
             />
           ))}

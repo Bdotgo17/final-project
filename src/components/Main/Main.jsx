@@ -45,7 +45,7 @@ function Main({
         setArticles(data.articles);
         setShowCount(3);
       } else {
-        setError("Nothing Found");
+        setError("");
       }
     } catch (err) {
       setError(

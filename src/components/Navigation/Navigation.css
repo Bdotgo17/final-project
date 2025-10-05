@@ -171,6 +171,15 @@
     padding: 0;
   }
 
+  .nav-link.active::after {
+    width: 64px; /* Adjust width for tablet */
+    bottom: -18px; /* Adjust vertical position as needed */
+    height: 3px;
+    background: #fff;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   /* Sign In button: 40px from right edge */
   .sign-in-btn {
     margin-left: 0;
