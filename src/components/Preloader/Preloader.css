@@ -58,7 +58,7 @@
 @media (max-width: 320px) {
   .news-cards-list {
     grid-template-columns: 1fr;
-    margin: 0 auto 0 auto;
+    margin: 0px 8px 0 8px;
   }
   .NewsCard {
     width: 288px;

@@ -160,30 +160,85 @@
 
 /* Mobile: 1 column, 288px cards */
 @media (max-width: 320px) {
+  .hero-wrapper {
+    width: 320px;
+    height: 526px;
+    max-width: 100vw;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
   .SearchForm {
     max-width: 100%;
     padding: 0 8px;
+    margin-top: -280px;
   }
 
   .search-title {
+    font-family: "Roboto Slab", serif;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 40px;
+    letter-spacing: 0px;
     width: 90vw;
     height: auto;
-    font-size: 24px;
-    line-height: 28px;
-    margin-top: 40px;
+    margin-top: -32px;
+    margin-left: 16px;
   }
+
   .search-subtitle {
-    width: 90vw;
-    height: auto;
-    font-size: 14px;
-    line-height: 20px;
-    margin-top: 16px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    margin-left: 16px;
+    width: 288px;
+    height: 72px;
+    box-sizing: border-box;
+    white-space: normal; /* Allow wrapping */
+    overflow-wrap: break-word; /* Break long words if needed */
+    display: block; /* Ensure it's a block element */
   }
+
   .search-bar-row {
-    width: 90vw;
+    width: 288px;
+    height: 56px;
     flex-direction: column;
     gap: 8px;
-    margin-top: 32px;
+    margin-top: 0px;
+  }
+
+  .search-bar-row .search-input {
+    width: 288px !important;
+    height: 56px !important;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0px;
+    padding: 0 20px;
+    border-radius: 100px;
+    margin-top: 90px;
+    margin-left: 8px;
+    margin-bottom: 8px;
+    flex: none;
+    box-sizing: border-box;
+  }
+
+  .search-btn {
+    width: 288px !important;
+    height: 56px !important;
+    font-size: 18px;
+    border-radius: 100px; /* Fully rounded ends */
+    margin-left: 8px; /* Reset margin for vertical layout */
+    flex: none;
+    box-sizing: border-box;
   }
 
   .news-cards-list {

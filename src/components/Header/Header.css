@@ -96,10 +96,13 @@
   }
 
   .header-title {
+    margin-left: 40px;
+    font-family: "Roboto Slab", serif;
+    font-weight: 700;
     font-size: 20px;
-    margin-left: 0;
-    margin-bottom: 8px;
-    margin-right: auto;
+    line-height: 24px;
+    letter-spacing: 0px;
+    vertical-align: middle;
   }
 
   .nav-link[data-underline="home"] {
@@ -113,7 +116,6 @@
   }
 
   .sign-in-btn {
-    width: 152px;
     height: 40px;
     font-family: "Roboto", sans-serif;
     font-weight: 500;
@@ -157,14 +159,36 @@
 
 /* ===== Mobile (≤320px) ===== */
 @media (max-width: 320px) {
+  .header {
+    height: 56px;
+    max-width: 320px;
+    padding: 0;
+  }
+
   .header-content {
-    padding: 12px 8px;
-    gap: 8px;
+    width: 100%;
+    max-width: 320px;
+    height: 100%;
+    flex-direction: row; /* or column if you want stacked */
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px auto;
+    padding-left: 8px;
+    padding-right: 16px;
+  }
+
+  .header-content > *:not(.header-title):not(.menu-btn) {
+    display: none;
   }
 
   .header-title {
+    margin-left: 40px;
+    font-family: "Roboto Slab", serif;
+    font-weight: 700;
     font-size: 20px;
-    margin-bottom: 8px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    vertical-align: middle;
   }
 
   .Navigation ul {
@@ -183,5 +207,53 @@
 
   .AboutAuthor {
     padding: 16px 8px;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .desktop-nav li:first-child {
+    display: none;
+  }
+
+  .desktop-nav .sign-in-btn {
+    display: none;
+  }
+
+  .menu-btn {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    width: 100vw;
+    background: #111;
+    z-index: 100;
+    padding: 32px 24px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
+  }
+  .mobile-nav .nav-link,
+  .mobile-nav .sign-in-btn {
+    width: 100%;
+    margin-bottom: 24px;
+    font-size: 20px;
+    text-align: left;
+    border-radius: 12px;
+    background: transparent;
+    color: #fff;
+    border: none;
+    padding: 12px 0;
+  }
+  .hamburger-icon {
+    filter: brightness(0) invert(0); /* Makes SVG/PNG icons black */
   }
 }

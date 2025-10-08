@@ -1,8 +1,11 @@
+import { useState } from "react";
 import "./SavedNews.css";
 import NewsCard from "../components/NewsCard/NewsCard"; // adjust the path as needed
 
-function SavedNews({ user, savedArticles = [] }) {
-  // Collect all keywords from saved articles
+function SavedNews({ user, savedArticles: initialSavedArticles = [] }) {
+  // Use local state for deletions
+  const [savedArticles, setSavedArticles] = useState(initialSavedArticles);
+
   const keywords = Array.from(
     new Set(savedArticles.map((a) => a.keyword).filter(Boolean))
   );
@@ -17,7 +20,14 @@ function SavedNews({ user, savedArticles = [] }) {
         ? `${firstTwo}, and ${othersCount} other${othersCount > 1 ? "s" : ""}`
         : firstTwo;
   } else {
-    keywordsLine = "None yet";
+    keywordsLine = "";
+  }
+
+  // Delete handler
+  function handleDeleteArticle(articleToDelete) {
+    setSavedArticles((prev) =>
+      prev.filter((a) => a.url !== articleToDelete.url)
+    );
   }
 
   return (
@@ -39,13 +49,11 @@ function SavedNews({ user, savedArticles = [] }) {
         <div className="news-cards-list">
           {savedArticles.slice(0, 6).map((article, idx) => (
             <NewsCard
-              key={idx}
+              key={article.url || idx}
               article={article}
               isSaved={true}
-              isSavedSection={true} // <-- Add this line
-              onDelete={() => {
-                /* implement delete logic here */
-              }}
+              isSavedSection={true}
+              onDelete={handleDeleteArticle}
               isLoggedIn={!!user}
             />
           ))}

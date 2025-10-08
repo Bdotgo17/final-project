@@ -330,18 +330,62 @@
     grid-template-columns: 1fr;
     margin: 0px 8px 0 8px;
   }
+
   .NewsCard {
     width: 288px;
     height: 440px;
   }
+
   .hero-wrapper,
   .about-author {
     padding: 16px 8px;
   }
-  .author-info h2 {
-    font-size: 24px;
+
+  .about-author {
+    width: 320px;
+    height: 752px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 16px 8px;
+    gap: 16px;
+    box-sizing: border-box;
   }
+
+  .author-image {
+    width: 272px;
+    height: 272px;
+    border-radius: 50%;
+    margin-bottom: 16px;
+    object-fit: cover;
+  }
+
+  .author-info h2 {
+    font-family: "Roboto Slab", serif;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 40px;
+    letter-spacing: 0px;
+    margin-bottom: 8px;
+  }
+
   .author-info p {
-    font-size: 14px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0px;
+  }
+
+  .results-title {
+    font-family: "Roboto Slab", serif;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 34px;
+    letter-spacing: 0px;
+    padding-left: 16px;
+    padding-right: 0;
+    margin-top: 24px; /* optional: adjust spacing as needed */
+    margin-bottom: 24px; /* optional: adjust spacing as needed */
   }
 }

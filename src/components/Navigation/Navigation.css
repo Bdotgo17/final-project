@@ -54,7 +54,6 @@
 .sign-in-btn {
   border: 2px solid #fff;
   border-radius: 999px; /* Makes it an oval */
-  width: 176px;
   height: 48px;
   display: flex;
   align-items: center;
@@ -126,7 +125,6 @@
   left: 50%;
   transform: translateX(-50%);
   bottom: -29px; /* Adjust as needed to sit above the header's border */
-  width: 68px; /* <-- Set width to 178px */
   height: 3px; /* <-- Set height to 3px */
   background: #fff;
   border-radius: 2px;
@@ -171,8 +169,17 @@
     padding: 0;
   }
 
+  .nav-link.active {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: center;
+    vertical-align: middle;
+  }
+
   .nav-link.active::after {
-    width: 64px; /* Adjust width for tablet */
     bottom: -18px; /* Adjust vertical position as needed */
     height: 3px;
     background: #fff;
@@ -180,9 +187,140 @@
     transform: translateX(-50%);
   }
 
+  .nav-link.active[data-underline="saved"]::after {
+    width: 125px;
+  }
+
   /* Sign In button: 40px from right edge */
   .sign-in-btn {
     margin-left: 0;
     margin-right: 40px;
+    border: 2px solid #fff;
+    border-radius: 999px; /* Makes it an oval */
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 28px;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    font-size: 1.1rem;
+    background: transparent;
+    transition: background 0.2s, color 0.2s;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+
+  .header-title {
+    margin-left: 0px;
+    font-family: "Roboto Slab", serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    vertical-align: middle;
+  }
+}
+
+@media (max-width: 320px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .header-title {
+    font-family: "Roboto Slab", serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    vertical-align: middle;
+    margin-left: 16px;
+    position: absolute;
+    left: 6px;
+    z-index: 201;
+    color: #fff;
+    background: transparent;
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 320px;
+    height: 230px;
+    background: #111;
+    z-index: 200;
+    padding: 32px 24px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+    transform: translateY(-100%);
+  }
+
+  .mobile-nav.open {
+    transform: translateY(0);
+  }
+
+  .mobile-nav .nav-link {
+    width: 100%;
+    margin-bottom: 24px;
+    font-size: 20px;
+    text-align: left;
+    border-radius: 12px;
+    background: transparent;
+    color: #fff;
+    border: none;
+    padding: 12px 0;
+  }
+
+  .mobile-nav .nav-link:first-child {
+    margin-top: 58px; /* Move Home button down */
+  }
+
+  .mobile-nav .sign-in-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 288px;
+    height: 56px;
+    position: absolute;
+    top: 200px; /* Use your preferred vertical position */
+    left: 16px;
+    opacity: 1;
+    border-radius: 100px;
+    border: 2px solid #fff;
+    background: #000;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: #fff;
+    box-sizing: border-box;
+  }
+
+  .menu-btn {
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    z-index: 201;
+    background: transparent;
+    border: none;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+
+  .mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 1);
+    z-index: 99; /* Should be below your mobile-nav, but above everything else */
+    opacity: 50%;
   }
 }
