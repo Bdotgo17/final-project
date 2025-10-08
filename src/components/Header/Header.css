@@ -254,6 +254,6 @@
     padding: 12px 0;
   }
   .hamburger-icon {
-    filter: brightness(0) invert(0); /* Makes SVG/PNG icons black */
+    filter: none;
   }
 }

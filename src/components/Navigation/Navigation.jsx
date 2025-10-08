@@ -10,6 +10,7 @@ function Navigation({
   onLogout,
   isDark,
   menuOpen,
+  setMenuOpen,
 }) {
   const location = useLocation();
 
@@ -62,7 +63,13 @@ function Navigation({
               </span>
             </button>
           ) : (
-            <button className="sign-in-btn" onClick={onSignIn}>
+            <button
+              className="sign-in-btn"
+              onClick={() => {
+                setMenuOpen(false);
+                onSignIn();
+              }}
+            >
               Sign in
             </button>
           )}

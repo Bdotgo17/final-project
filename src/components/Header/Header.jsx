@@ -3,14 +3,17 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "./Header.css";
 import Navigation from "../Navigation/Navigation";
 import hamburgerIcon from "../../assets/hamburger.svg";
+import hamburgerBlackIcon from "../../assets/hamburgerBlack.svg";
 import mobileCloseIcon from "../../assets/mobileClose.svg";
 
 function Header({ showSavedLink, onSignInClick, user, onSignIn, onLogout }) {
   const location = useLocation();
-  const navigate = useNavigate(); // <-- add this line
+  const navigate = useNavigate();
   const isDark = location.pathname === "/saved-news";
   const [menuOpen, setMenuOpen] = useState(false);
   const [showSignInModal, setShowSignInModal] = useState(false);
+  const isSavedNews = location.pathname === "/saved-news";
+  const hamburgerIconSrc = isSavedNews ? hamburgerBlackIcon : hamburgerIcon;
 
   const handleSignIn = () => {
     // ...your login logic...
@@ -33,7 +36,7 @@ function Header({ showSavedLink, onSignInClick, user, onSignIn, onLogout }) {
             aria-label={menuOpen ? "Close menu" : "Open menu"}
           >
             <img
-              src={menuOpen ? mobileCloseIcon : hamburgerIcon}
+              src={menuOpen ? mobileCloseIcon : hamburgerIconSrc}
               alt={menuOpen ? "Close menu" : "Open menu"}
               className="hamburger-icon"
               width={24}
@@ -42,12 +45,15 @@ function Header({ showSavedLink, onSignInClick, user, onSignIn, onLogout }) {
           </button>
           <Navigation
             showSavedLink={showSavedLink}
-            onSignIn={() => setShowSignInModal(true)}
+            onSignIn={() => {
+              console.log("Sign in clicked");
+              setShowSignInModal(true);
+            }}
             user={user}
             isDark={isDark}
             onLogout={onLogout}
             menuOpen={menuOpen}
-            setMenuOpen={setMenuOpen} 
+            setMenuOpen={setMenuOpen}
           />
         </div>
       </header>
