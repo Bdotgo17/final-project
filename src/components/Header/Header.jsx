@@ -25,6 +25,8 @@ function Header({ showSavedLink, onSignInClick, user, onSignIn, onLogout }) {
     }
   };
 
+  console.log(menuOpen); // <-- Add this here
+
   return (
     <>
       <header className={`header${isDark ? " header-dark" : ""}`}>

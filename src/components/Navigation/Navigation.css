@@ -323,4 +323,18 @@
     z-index: 99; /* Should be below your mobile-nav, but above everything else */
     opacity: 50%;
   }
+
+  .sign-in-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999; /* Higher than .mobile-nav */
+    background: rgba(0, 0, 0, 0.95); /* Or your preferred modal background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
