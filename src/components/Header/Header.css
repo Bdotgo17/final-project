@@ -271,3 +271,9 @@
     align-items: center;
   }
 }
+
+@media (min-width: 321px) {
+  .menu-btn {
+    display: none;
+  }
+}
