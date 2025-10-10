@@ -71,7 +71,7 @@
   }
 }
 
-@media (min-width: 321px) {
+@media (min-width: 767px) {
   .footer {
     flex-direction: row;
     justify-content: space-between;
