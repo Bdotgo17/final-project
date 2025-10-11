@@ -56,7 +56,8 @@
 .news-source {
   font-size: 14px;
   color: #b6bcbf;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto Slab", serif;
+  text-transform: uppercase;
   position: absolute;
   bottom: 16px;
   left: 24px;

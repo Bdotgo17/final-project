@@ -10,6 +10,16 @@ import nothingFoundImg from "../../assets/nothing-found.svg";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import { fetchNews } from "../../utils/newsApi"; // Make sure this import is present
+import Footer from "../Footer/Footer";    
+import SavedNews from "../../pages/SavedNews";
+import { HashRouter } from "react-router-dom";
+
+// Example articles
+const demoArticles = [
+  { id: 1, title: "First Article", content: "Lorem ipsum..." },
+  { id: 2, title: "Second Article", content: "Dolor sit amet..." },
+];
+const useMockAuth = true; // Set to false for real logic
 
 function Main({
   showSavedLink,
@@ -66,6 +76,13 @@ function Main({
   function handleSignIn(username) {
     setUser({ username });
     setIsLoginOpen(false);
+    window.location.hash = "#/saved-news"; // Redirect after login for HashRouter
+  }
+
+  function handleLogout() {
+    setUser(null);
+    setSavedArticles([]);
+    window.location.hash = "#/"; // redirect for HashRouter
   }
 
   function handleSaveArticle(article) {
@@ -79,6 +96,10 @@ function Main({
     });
   }
 
+  function handleRemoveArticle(articleId) {
+    setSavedArticles(savedArticles.filter((a) => a.id !== articleId));
+  }
+
   return (
     <>
       <main className="Main">
@@ -90,7 +111,7 @@ function Main({
             user={user}
             showSavedLink={showSavedLink}
             onSignIn={() => setIsLoginOpen && setIsLoginOpen(true)}
-            onLogout={onLogout}
+            onLogout={useMockAuth ? handleLogout : onLogout}
           />{" "}
           <section className="hero-section">
             <SearchForm onSearch={handleSearch} />
@@ -185,7 +206,7 @@ function Main({
           setIsLoginOpen(false);
           setIsRegisterOpen(true);
         }}
-        onSignIn={handleSignIn}
+        onSignIn={useMockAuth ? handleSignIn : onSignIn}
         setUser={setUser}
       />
       <RegisterModal

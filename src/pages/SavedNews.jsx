@@ -2,9 +2,12 @@ import { useState } from "react";
 import "./SavedNews.css";
 import NewsCard from "../components/NewsCard/NewsCard"; // adjust the path as needed
 
-function SavedNews({ user, savedArticles: initialSavedArticles = [] }) {
-  // Use local state for deletions
-  const [savedArticles, setSavedArticles] = useState(initialSavedArticles);
+function SavedNews({
+  user,
+  savedArticles =  [],
+  onRemoveArticle,
+}) {
+  console.log("SavedNews user:", user); // <-- Add this line
 
   const keywords = Array.from(
     new Set(savedArticles.map((a) => a.keyword).filter(Boolean))
@@ -25,9 +28,9 @@ function SavedNews({ user, savedArticles: initialSavedArticles = [] }) {
 
   // Delete handler
   function handleDeleteArticle(articleToDelete) {
-    setSavedArticles((prev) =>
-      prev.filter((a) => a.url !== articleToDelete.url)
-    );
+    if (onRemoveArticle) {
+      onRemoveArticle(articleToDelete.url);
+    }
   }
 
   return (

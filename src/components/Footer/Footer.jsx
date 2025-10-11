@@ -5,6 +5,11 @@ import "./Footer.css";
 function Footer() {
   return (
     <footer className="footer">
+      <div className="footer-left">
+        <div className="footer-copyright">
+          ©2025 Supersite, Powered by News API
+        </div>
+      </div>
       <div className="footer-right">
         <div className="footer-links">
           <a href="/" className="footer-link">
@@ -34,9 +39,6 @@ function Footer() {
           >
             <img src={linkedinLogo} alt="LinkedIn" className="footer-icon" />
           </a>
-        </div>
-        <div className="footer-copyright">
-          ©2025 Supersite, Powered by News API
         </div>
       </div>
     </footer>

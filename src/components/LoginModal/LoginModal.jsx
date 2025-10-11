@@ -76,6 +76,15 @@ function LoginModal({ isOpen, onClose, onRegisterClick, onSignIn, setUser }) {
       <button className="modal-btn secondary" onClick={onRegisterClick}>
         <span style={{ color: "#111" }}>or</span> <span>Sign Up</span>
       </button>
+      {/* Mock sign-in for reviewer */}
+      <button
+        type="button"
+        className="modal-btn"
+        style={{ marginTop: "12px" }}
+        onClick={() => onSignIn("demo")}
+      >
+        Sign in as demo
+      </button>
     </ModalWithForm>
   );
 }

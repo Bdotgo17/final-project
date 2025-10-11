@@ -6,26 +6,12 @@ import hamburgerIcon from "../../assets/hamburger.svg";
 import hamburgerBlackIcon from "../../assets/hamburgerBlack.svg";
 import mobileCloseIcon from "../../assets/mobileClose.svg";
 
-function Header({ showSavedLink, onSignInClick, user, onSignIn, onLogout }) {
+function Header({ showSavedLink, user, onSignIn, onLogout }) {
   const location = useLocation();
-  const navigate = useNavigate();
   const isDark = location.pathname === "/saved-news";
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showSignInModal, setShowSignInModal] = useState(false);
   const isSavedNews = location.pathname === "/saved-news";
   const hamburgerIconSrc = isSavedNews ? hamburgerBlackIcon : hamburgerIcon;
-
-  const handleSignIn = () => {
-    // ...your login logic...
-    setShowSignInModal(false); // close modal
-
-    // Only redirect on mobile (≤320px)
-    if (window.innerWidth <= 320) {
-      navigate("/saved-news");
-    }
-  };
-
-  console.log(menuOpen); // <-- Add this here
 
   return (
     <>
@@ -47,10 +33,7 @@ function Header({ showSavedLink, onSignInClick, user, onSignIn, onLogout }) {
           </button>
           <Navigation
             showSavedLink={showSavedLink}
-            onSignIn={() => {
-              console.log("Sign in clicked");
-              setShowSignInModal(true);
-            }}
+            onSignIn={onSignIn} // Use the handler from Main.jsx
             user={user}
             isDark={isDark}
             onLogout={onLogout}
@@ -59,13 +42,6 @@ function Header({ showSavedLink, onSignInClick, user, onSignIn, onLogout }) {
           />
         </div>
       </header>
-      {showSignInModal && (
-        <div className="sign-in-modal">
-          <input type="text" placeholder="Username" autoFocus />
-          <button onClick={handleSignIn}>Sign In</button>
-          {/* ...other fields/buttons... */}
-        </div>
-      )}
     </>
   );
 }

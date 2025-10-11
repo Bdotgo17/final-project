@@ -17,6 +17,7 @@ function App() {
   const showSavedLink = articles.length > 0;
   const [savedArticles, setSavedArticles] = useState([]);
   const navigate = useNavigate();
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
 
   function handleShowMore() {
     setShowCount((prev) => prev + 3);
@@ -26,6 +27,16 @@ function App() {
     setUser(null); // Log out the user
     // Optionally clear savedArticles or other state here
     navigate("/"); // Redirect to home page
+  }
+
+  function handleSaveArticle(article) {
+    if (!savedArticles.find((a) => a.id === article.id)) {
+      setSavedArticles([...savedArticles, article]);
+    }
+  }
+
+  function handleRemoveArticle(articleUrl) {
+    setSavedArticles(savedArticles.filter((a) => a.url !== articleUrl));
   }
 
   return (
@@ -46,6 +57,9 @@ function App() {
                 savedArticles={savedArticles}
                 setSavedArticles={setSavedArticles}
                 onLogout={handleLogout}
+                onSaveArticle={handleSaveArticle}
+                isLoginOpen={isLoginOpen}
+                setIsLoginOpen={setIsLoginOpen}
               />
             </>
           }
@@ -61,7 +75,11 @@ function App() {
                 theme="dark"
                 onLogout={handleLogout}
               />
-              <SavedNews user={user} savedArticles={savedArticles} />
+              <SavedNews
+                user={user}
+                savedArticles={savedArticles}
+                onRemoveArticle={handleRemoveArticle}
+              />
             </>
           }
         />

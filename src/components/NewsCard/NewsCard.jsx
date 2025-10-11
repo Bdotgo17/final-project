@@ -103,7 +103,7 @@ function NewsCard({
           rel="noopener noreferrer"
           className="news-link"
         >
-          Read more
+    
         </a>
       </div>
     </article>
