@@ -1,4 +1,4 @@
-.NewsCard {
+.news__card {
   width: 400px;
   height: 576px;
   background: #fff;
@@ -9,14 +9,14 @@
   overflow: hidden;
 }
 
-.news-image {
+.news__card-image {
   width: 100%;
   height: 272px;
   object-fit: cover;
   display: block;
 }
 
-.news-content {
+.news__card-content {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -25,7 +25,7 @@
   position: relative;
 }
 
-.news-date {
+.news__card-date {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
   font-size: 18px;
@@ -35,7 +35,7 @@
   margin-bottom: 4px;
 }
 
-.news-title {
+.news__card-title {
   font-size: 20px;
   font-family: "Roboto Slab", serif;
   color: #213547;
@@ -43,7 +43,7 @@
   font-weight: 700;
 }
 
-.news-description {
+.news__card-description {
   font-size: 16px;
   color: #213547;
   font-family: "Roboto", sans-serif;
@@ -53,7 +53,7 @@
   text-overflow: ellipsis;
 }
 
-.news-source {
+.news__card-source {
   font-size: 14px;
   color: #b6bcbf;
   font-family: "Roboto Slab", serif;
@@ -65,11 +65,11 @@
   text-align: left;
 }
 
-.news-card-header {
+.news__card-header {
   position: relative;
 }
 
-.save-icon {
+.news__card-save-icon {
   position: absolute;
   top: 24px;
   right: 24px;
@@ -86,27 +86,27 @@
   transition: color 0.2s;
 }
 
-.save-icon:hover {
+.news__card-save-icon:hover {
   box-shadow: 0 4px 16px rgba(47, 113, 229, 0.15);
 }
 
-.save-icon svg {
+.news__card-save-icon svg {
   stroke: #b6bcbf;
   fill: none;
   transition: stroke 0.2s, fill 0.2s;
 }
 
-.save-icon.saved svg {
+.news__card-save-icon.saved svg {
   stroke: #2f71e5;
   fill: #2f71e5;
 }
 
-.save-icon:focus {
+.news__card-save-icon:focus {
   outline: none;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* or your preferred shadow */
 }
 
-.news-card-keyword-label {
+.news__card-keyword-label {
   position: absolute;
   top: 24px; /* Adjust this value to lower it as needed */
   left: 24px; /* Or whatever your card's padding is */
@@ -124,11 +124,11 @@
   width: auto;
 }
 
-.news-card-header {
+.news__card-header {
   position: relative;
 }
 
-.trashcan-wrapper {
+.news__card-trashcan-wrapper {
   position: absolute;
   top: 24px;
   right: 24px;
@@ -138,7 +138,7 @@
   z-index: 3;
 }
 
-.remove-tooltip {
+.news__card-remove-tooltip {
   position: absolute;
   right: 70px;
   top: -2px;
@@ -169,7 +169,7 @@
 }
 
 @media (width: 768px) {
-  .news-cards-list {
+  .news__cards-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
@@ -177,7 +177,7 @@
     margin: 0 auto 0 auto;
   }
 
-  .news-title {
+  .news__card-title {
     font-family: "Roboto Slab", serif;
     font-weight: 400;
     font-size: 22px;
@@ -192,7 +192,7 @@
     max-height: 72px;
   }
 
-  .news-description {
+  .news__card-description {
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-size: 16px;
@@ -207,7 +207,7 @@
     -webkit-box-orient: vertical;
   }
 
-  .news-content {
+  .news__card-content {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -215,12 +215,12 @@
     position: relative;
   }
 
-  .NewsCard {
+  .news__card {
     width: 224px;
     height: 420px;
   }
 
-  .news-card-keyword-label {
+  .news__card-keyword-label {
     position: absolute;
     top: 24px; /* Adjust this value to lower it as needed */
     left: 14px; /* Or whatever your card's padding is */
@@ -238,17 +238,17 @@
     width: auto;
   }
 
-  .news-image {
+  .news__card-image {
     height: 196px;
     width: 100%;
     object-fit: cover;
   }
 
-  .news-link {
+  .news__card-link {
     display: none;
   }
 
-  .news-date {
+  .news__card-date {
     font-family: "Source Sans Pro", sans-serif;
     font-weight: 400;
     font-size: 18px;
@@ -261,7 +261,7 @@
     display: inline-block;
   }
 
-  .news-source {
+  .news__card-source {
     font-family: "Roboto Slab", serif;
     font-weight: 700;
     font-size: 16px;
@@ -278,7 +278,7 @@
     text-align: left;
   }
 
-  .save-icon {
+  .news__card-save-icon {
     position: absolute;
     top: 8px;
     right: 8px;
@@ -295,7 +295,7 @@
     transition: color 0.2s;
   }
 
-  .remove-tooltip {
+  .news__card-remove-tooltip {
     position: absolute;
     right: 40px;
     top: -2px;
@@ -318,33 +318,33 @@
 }
 
 @media (max-width: 320px) {
-  .NewsCard {
+  .news__card {
     width: 288px;
     height: 440px;
   }
 
-  .news-image {
+  .news__card-image {
     height: 196px;
     width: 100%;
     object-fit: cover;
     display: block;
   }
 
-  .news-content {
+  .news__card-content {
     padding: 12px 8px 8px 8px;
   }
 
-  .news-cards-list {
+  .news__cards-list {
     grid-template-columns: 1fr;
     gap: 12px;
     margin: 0px 8px 0 8px;
   }
 
-  .news-link {
+  .news__card-link {
     display: none;
   }
 
-  .news-date {
+  .news__card-date {
     font-family: "Source Sans Pro", sans-serif;
     font-weight: 400;
     font-size: 18px;
@@ -356,7 +356,7 @@
     margin-left: 8px;
   }
 
-  .news-title {
+  .news__card-title {
     font-family: "Roboto Slab", serif;
     font-weight: 400;
     font-size: 22px;
@@ -367,7 +367,7 @@
     color: #213547;
   }
 
-  .news-description {
+  .news__card-description {
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-size: 16px;
@@ -380,7 +380,7 @@
     text-overflow: ellipsis;
   }
 
-  .news-source {
+  .news__card-source {
     font-family: "Roboto Slab", serif;
     font-weight: 700;
     font-size: 16px;

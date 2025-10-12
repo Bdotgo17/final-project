@@ -28,14 +28,18 @@ function RegisterModal({ isOpen, onClose, onLoginClick }) {
     <ModalWithForm
       isOpen={isOpen}
       onClose={onClose}
-      className={`register-modal-form${registrationSuccess ? " success" : ""}`}
+      className={`register-modal${
+        registrationSuccess ? " register-modal--success" : ""
+      }`}
     >
       {" "}
       {registrationSuccess ? (
         <>
-          <h2 className="modal-title">Registration successfully completed!</h2>
+          <h2 className="register-modal__title">
+            Registration successfully completed!
+          </h2>
           <button
-            className="success-signin-btn"
+            className="register-modal__success-signin-btn"
             onClick={() => {
               setRegistrationSuccess(false);
               onLoginClick(); // Open sign in modal
@@ -46,9 +50,9 @@ function RegisterModal({ isOpen, onClose, onLoginClick }) {
         </>
       ) : (
         <>
-          <h2 className="modal-title">Sign Up</h2>
-          <form className="register-form" onSubmit={handleSubmit}>
-            <label className="modal-label" htmlFor="register-email">
+          <h2 className="register-modal__title">Sign Up</h2>
+          <form className="register-modal__form" onSubmit={handleSubmit}>
+            <label className="register-modal__label" htmlFor="register-email">
               Email
             </label>
             <input
@@ -56,11 +60,14 @@ function RegisterModal({ isOpen, onClose, onLoginClick }) {
               type="email"
               placeholder="Enter Email"
               required
-              className="modal-input"
+              className="register-modal__input"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <label className="modal-label" htmlFor="register-password">
+            <label
+              className="register-modal__label"
+              htmlFor="register-password"
+            >
               Password
             </label>
             <input
@@ -68,11 +75,14 @@ function RegisterModal({ isOpen, onClose, onLoginClick }) {
               type="password"
               placeholder="Enter Password"
               required
-              className="modal-input"
+              className="register-modal__input"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <label className="modal-label" htmlFor="register-username">
+            <label
+              className="register-modal__label"
+              htmlFor="register-username"
+            >
               Username
             </label>
             <input
@@ -80,22 +90,29 @@ function RegisterModal({ isOpen, onClose, onLoginClick }) {
               type="text"
               placeholder="Enter username"
               required
-              className="modal-input"
+              className="register-modal__input"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
             {emailTaken && (
-              <div className="input-error">This email is not available</div>
+              <div className="register-modal__input-error">
+                This email is not available
+              </div>
             )}
             <button
               type="submit"
-              className={`modal-btn${isActive ? " active" : ""}`}
+              className={`register-modal__btn${
+                isActive ? " register-modal__btn--active" : ""
+              }`}
               disabled={!isActive}
             >
               Sign Up
             </button>
           </form>
-          <button className="modal-btn secondary" onClick={onLoginClick}>
+          <button
+            className="register-modal__btn register-modal__btn--secondary"
+            onClick={onLoginClick}
+          >
             <span style={{ color: "#111" }}>or</span> <span>Sign In</span>
           </button>
         </>

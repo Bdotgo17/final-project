@@ -1,4 +1,4 @@
-.input-error {
+.register-modal__input-error {
   color: rgba(255, 0, 0, 1);
   font-size: 12px;
   margin-left: 36px;
@@ -10,7 +10,7 @@
   text-align: center;
 }
 
-.ModalWithForm.register-modal-form {
+.modal-with-form.register-modal__form.register-modal__form {
   width: 430px !important;
   min-height: 458px !important;
   max-height: none !important;
@@ -23,7 +23,7 @@
   overflow: visible;
 }
 
-.modal-title {
+.register-modal__title {
   white-space: normal; /* allow wrapping */
   text-align: left;
   font-size: 20px;
@@ -35,7 +35,7 @@
   height: auto;
 }
 
-.register-form {
+.register-modal__form {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -44,7 +44,7 @@
   width: 100%;
 }
 
-.success-signin-btn {
+.register-modal__success-signin-btn {
   position: absolute;
   left: 36px;
   bottom: 24px;
@@ -60,7 +60,7 @@
   text-align: left;
 }
 
-.ModalWithForm.register-modal-form.success {
+.modal-with-form.register-modal__form.success {
   height: 182px !important;
   min-height: 182px !important;
   max-height: 182px !important;

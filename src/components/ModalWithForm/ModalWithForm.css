@@ -1,4 +1,4 @@
-.ModalWithForm__overlay {
+.modal-with-form__overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -12,7 +12,7 @@
   padding-top: 0px; /* space from the top */
 }
 
-.ModalWithForm {
+.modal-with-form {
   background: #fff;
   max-width: 430px;
   width: 100%;
@@ -25,7 +25,7 @@
   align-items: stretch;
 }
 
-.ModalWithForm__close {
+.modal-with-form__close {
   position: absolute;
   top: -50px; /* adjust as needed */
   right: -50px; /* adjust as needed */
@@ -41,7 +41,7 @@
   justify-content: center;
 }
 
-.ModalWithForm__close img {
+.modal-with-form__close img {
   width: 40px;
   height: 40px;
   display: block;
@@ -49,13 +49,13 @@
 
 /* Responsive modal styles */
 @media (max-width: 768px) {
-  .ModalWithForm {
+  .modal-with-form__overlay {
     width: 90vw;
     padding: 16px;
   }
 }
 @media (max-width: 400px) {
-  .ModalWithForm {
+  .modal-with-form__overlay {
     width: 98vw;
     padding: 8px;
   }

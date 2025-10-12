@@ -1,4 +1,4 @@
-.Navigation ul {
+.navigation__desktop-list {
   display: flex;
   gap: 2rem;
   list-style: none;
@@ -8,11 +8,11 @@
   justify-content: flex-start;
 }
 
-.Navigation li {
+.navigation__desktop-list li {
   margin: 0;
 }
 
-.Navigation a {
+.navigation__link {
   text-decoration: none;
   color: #fff;
   font-weight: 500;
@@ -20,14 +20,14 @@
 }
 
 /* Target only the first link (Home) */
-.Navigation li:first-child a {
+.navigation__desktop-list li:first-child .navigation__link {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 18px;
   margin-right: 42px;
 }
 
-.Navigation li:last-child a {
+.navigation__desktop-list li:last-child .navigation__link {
   border: 2px solid #fff;
   border-radius: 999px; /* Makes it an oval */
   width: 176px;
@@ -47,11 +47,11 @@
   margin-right: 104px;
 }
 
-.Navigation li:last-child a:hover {
+.navigation__desktop-list li:last-child .navigation__link:hover {
   background: rgba(255, 255, 255, 0.1);
 }
 
-.sign-in-btn {
+.navigation__sign-in-btn {
   border: 2px solid #fff;
   border-radius: 999px; /* Makes it an oval */
   height: 48px;
@@ -71,16 +71,16 @@
   cursor: pointer;
 }
 
-.sign-in-btn:hover,
-.sign-in-btn:active,
-.sign-in-btn:focus {
+.navigation__sign-in-btn:hover,
+.navigation__sign-in-btn:active,
+.navigation__sign-in-btn:focus {
   background: transparent;
   color: #fff;
   outline: none;
   border-color: #fff;
 }
 
-.modal-btn {
+.login-modal__btn {
   border: 2px solid #fff;
   border-radius: 999px;
   width: 176px;
@@ -100,16 +100,16 @@
   cursor: pointer;
 }
 
-.modal-btn:hover,
-.modal-btn:active,
-.modal-btn:focus {
+.login-modal__btn:hover,
+.login-modal__btn:active,
+.login-modal__btn:focus {
   background: transparent;
   color: #fff;
   outline: none;
   border-color: #fff;
 }
 
-.nav-link {
+.navigation__link {
   position: relative;
   text-decoration: none;
   color: #fff;
@@ -118,7 +118,7 @@
   background: transparent;
 }
 
-.nav-link.active::after {
+.navigation__link.active::after {
   content: "";
   display: block;
   position: absolute;
@@ -131,37 +131,37 @@
   z-index: 2;
 }
 
-.nav-link.active[data-underline="saved"]::after {
+.navigation__link.active[data-underline="saved"]::after {
   width: 178px;
 }
 
-.Navigation .nav-link,
-.Navigation .sign-in-btn {
+.navigation__link,
+.navigation__sign-in-btn {
   color: #fff;
 }
 
-.header-dark .nav-link,
-.header-dark .sign-in-btn {
+.header-dark .navigation__link,
+.header-dark .navigation__sign-in-btn {
   color: #111 !important;
 }
 
-.header-dark .nav-link.active::after {
+.header-dark .navigation__link.active::after {
   background: #111 !important;
 }
 
 /* Username button (sign-in-btn) black oval in dark header */
-.header-dark .sign-in-btn {
+.header-dark .navigation__sign-in-btn {
   border-color: #111 !important;
 }
 
 @media (max-width: 768px) {
   /* Remove right margin from Home button */
-  .Navigation li:first-child {
+  .navigation__desktop-list li:first-child {
     margin-right: 0;
   }
 
   /* Add 16px gap between Home and Sign In */
-  .Navigation ul {
+  .navigation__desktop-list ul {
     display: flex;
     gap: 16px;
     align-items: center;
@@ -169,7 +169,7 @@
     padding: 0;
   }
 
-  .nav-link.active {
+  .navigation__link.active {
     font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-size: 16px;
@@ -179,7 +179,7 @@
     vertical-align: middle;
   }
 
-  .nav-link.active::after {
+  .navigation__link.active::after {
     bottom: -18px; /* Adjust vertical position as needed */
     height: 3px;
     background: #fff;
@@ -187,12 +187,12 @@
     transform: translateX(-50%);
   }
 
-  .nav-link.active[data-underline="saved"]::after {
+  .navigation__link.active[data-underline="saved"]::after {
     width: 125px;
   }
 
   /* Sign In button: 40px from right edge */
-  .sign-in-btn {
+  .navigation__sign-in-btn {
     margin-left: 0;
     margin-right: 40px;
     border: 2px solid #fff;
@@ -213,7 +213,7 @@
     cursor: pointer;
   }
 
-  .header-title {
+  .header__title {
     margin-left: 0px;
     font-family: "Roboto Slab", serif;
     font-weight: 700;
@@ -225,11 +225,11 @@
 }
 
 @media (max-width: 320px) {
-  .desktop-nav {
+  .navigation__desktop-list {
     display: none;
   }
 
-  .header-title {
+  .header__title {
     font-family: "Roboto Slab", serif;
     font-weight: 700;
     font-size: 16px;
@@ -244,7 +244,7 @@
     background: transparent;
   }
 
-  .mobile-nav {
+  .mobile__nav {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -261,11 +261,11 @@
     transform: translateY(-100%);
   }
 
-  .mobile-nav.open {
+  .mobile__nav.open {
     transform: translateY(0);
   }
 
-  .mobile-nav .nav-link {
+  .mobile__nav .navigation__link {
     width: 100%;
     margin-bottom: 24px;
     font-size: 20px;
@@ -277,11 +277,11 @@
     padding: 12px 0;
   }
 
-  .mobile-nav .nav-link:first-child {
+  .mobile__nav .navigation__link:first-child {
     margin-top: 58px; /* Move Home button down */
   }
 
-  .mobile-nav .sign-in-btn {
+  .mobile__nav .navigation__sign-in-btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -301,7 +301,7 @@
     box-sizing: border-box;
   }
 
-  .menu-btn {
+  .navigation__menu-btn {
     position: absolute;
     top: 16px;
     right: 24px;
@@ -313,7 +313,7 @@
     cursor: pointer;
   }
 
-  .mobile-overlay {
+  .navigation__mobile-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -324,7 +324,7 @@
     opacity: 50%;
   }
 
-  .sign-in-modal {
+  .navigation__sign-in-modal {
     position: fixed;
     top: 0;
     left: 0;

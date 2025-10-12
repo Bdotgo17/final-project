@@ -15,18 +15,18 @@ function Header({ showSavedLink, user, onSignIn, onLogout }) {
 
   return (
     <>
-      <header className={`header${isDark ? " header-dark" : ""}`}>
-        <div className="header-content">
-          <span className="header-title">NewsExplorer</span>
+      <header className={`header${isDark ? " header--dark" : ""}`}>
+        <div className="header__content">
+          <span className="header__title">NewsExplorer</span>
           <button
-            className="menu-btn"
+            className="header__menu-btn"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
           >
             <img
               src={menuOpen ? mobileCloseIcon : hamburgerIconSrc}
               alt={menuOpen ? "Close menu" : "Open menu"}
-              className="hamburger-icon"
+              className="header__hamburger-icon"
               width={24}
               height={24}
             />

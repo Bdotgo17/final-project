@@ -2,11 +2,7 @@ import { useState } from "react";
 import "./SavedNews.css";
 import NewsCard from "../components/NewsCard/NewsCard"; // adjust the path as needed
 
-function SavedNews({
-  user,
-  savedArticles =  [],
-  onRemoveArticle,
-}) {
+function SavedNews({ user, savedArticles = [], onRemoveArticle }) {
   console.log("SavedNews user:", user); // <-- Add this line
 
   const keywords = Array.from(
@@ -34,22 +30,22 @@ function SavedNews({
   }
 
   return (
-    <main className="Main">
-      <section className="saved-news-header">
-        <div className="saved-news-label">Saved articles</div>
-        <h2 className="saved-news-title">
+    <main className="saved-news">
+      <section className="saved-news__header">
+        <div className="saved-news__label">Saved articles</div>
+        <h2 className="saved-news__title">
           {user
             ? `${user.username}, you have ${
                 savedArticles.length
               } saved article${savedArticles.length !== 1 ? "s" : ""}`
             : "Saved Articles"}
         </h2>
-        <div className="saved-news-keywords">
-          By keywords: <span className="keywords-list">{keywordsLine}</span>
+        <div className="saved-news__keywords">
+          By keywords: <span className="saved-news__keywords-list">{keywordsLine}</span>
         </div>
       </section>
-      <section className="saved-news-cards">
-        <div className="news-cards-list">
+      <section className="saved-news__cards">
+        <div className="main__news-cards-list">
           {savedArticles.slice(0, 6).map((article, idx) => (
             <NewsCard
               key={article.url || idx}

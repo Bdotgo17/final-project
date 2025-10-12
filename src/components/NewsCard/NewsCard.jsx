@@ -33,25 +33,25 @@ function NewsCard({
   }
 
   return (
-    <article className="NewsCard">
-      <div className="news-card-header">
+    <article className="news__card">
+      <div className="news__card-header">
         {article.keyword && (
-          <span className="news-card-keyword-label">{article.keyword}</span>
+          <span className="news__card-keyword-label">{article.keyword}</span>
         )}
         {article.urlToImage && (
           <img
             src={article.urlToImage}
             alt={article.title}
-            className="news-image"
+            className="news__card-image"
           />
         )}
         {isSavedSection ? (
-          <div className="trashcan-wrapper">
+          <div className="news__card-trashcan-wrapper">
             {isHovered && (
-              <div className="remove-tooltip">Remove from saved</div>
+              <div className="news__card-remove-tooltip">Remove from saved</div>
             )}
             <button
-              className="save-icon"
+              className="news__card-save-icon"
               onClick={() => onDelete(article)}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
@@ -67,7 +67,9 @@ function NewsCard({
           </div>
         ) : (
           <button
-            className={`save-icon${isSaved ? " saved" : ""}`}
+            className={`news__card-save-icon${
+              isSaved ? " news__card-save-icon--saved" : ""
+            }`}
             onClick={handleSaveClick}
             onMouseEnter={() => !isLoggedIn && setShowTooltip(true)}
             onMouseLeave={() => setShowTooltip(false)}
@@ -89,22 +91,20 @@ function NewsCard({
           </button>
         )}
         {showTooltip && (
-          <div className="save-tooltip">Sign in to save articles</div>
+          <div className="news__card-save-tooltip">Sign in to save articles</div>
         )}
       </div>
-      <div className="news-content">
-        <span className="news-date">{formatDate(article.publishedAt)}</span>
-        <h3 className="news-title">{article.title}</h3>
-        <p className="news-description">{article.description}</p>
-        <div className="news-source">{article.source?.name}</div>
+      <div className="news__card-content">
+        <span className="news__card-date">{formatDate(article.publishedAt)}</span>
+        <h3 className="news__card-title">{article.title}</h3>
+        <p className="news__card-description">{article.description}</p>
+        <div className="news__card-source">{article.source?.name}</div>
         <a
           href={article.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="news-link"
-        >
-    
-        </a>
+          className="news__link"
+        ></a>
       </div>
     </article>
   );

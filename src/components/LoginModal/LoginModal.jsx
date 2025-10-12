@@ -8,20 +8,15 @@ function LoginModal({ isOpen, onClose, onRegisterClick, onSignIn, setUser }) {
   const [emailTouched, setEmailTouched] = useState(false);
   const [loginError, setLoginError] = useState("");
 
-  // Simple email validation regex
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
   const showEmailError = emailTouched && email && !isValidEmail(email);
-
   const isActive = isValidEmail(email) && password.trim() !== "";
 
   function handleSubmit(e) {
     e.preventDefault();
-    // Get user from localStorage
     const user = JSON.parse(localStorage.getItem("user"));
     if (user && user.email === email && user.password === password) {
-      setUser({ username: user.username }); // <-- Set the user here!
-
+      setUser({ username: user.username });
       onSignIn(user.username);
       onClose();
     } else {
@@ -33,9 +28,9 @@ function LoginModal({ isOpen, onClose, onRegisterClick, onSignIn, setUser }) {
 
   return (
     <ModalWithForm isOpen={isOpen} onClose={onClose}>
-      <h2 className="modal-title">Sign In</h2>
-      <form className="register-form" onSubmit={handleSubmit}>
-        <label className="modal-label" htmlFor="login-email">
+      <form className="login-modal__form" onSubmit={handleSubmit}>
+        <h2 className="login-modal__title">Sign In</h2>
+        <label className="login-modal__label" htmlFor="login-email">
           Email
         </label>
         <input
@@ -43,15 +38,17 @@ function LoginModal({ isOpen, onClose, onRegisterClick, onSignIn, setUser }) {
           type="email"
           placeholder="Enter email"
           required
-          className="modal-input"
+          className="login-modal__input"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           onBlur={() => setEmailTouched(true)}
         />
         {showEmailError && (
-          <span className="input-error">Invalid email address</span>
+          <span className="login-modal__input-error">
+            Invalid email address
+          </span>
         )}
-        <label className="modal-label" htmlFor="login-password">
+        <label className="login-modal__label" htmlFor="login-password">
           Password
         </label>
         <input
@@ -59,32 +56,38 @@ function LoginModal({ isOpen, onClose, onRegisterClick, onSignIn, setUser }) {
           type="password"
           placeholder="Enter password"
           required
-          className="modal-input"
+          className="login-modal__input"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        {loginError && <span className="input-error">{loginError}</span>}
+        {loginError && (
+          <span className="login-modal__input-error">{loginError}</span>
+        )}
 
         <button
           type="submit"
-          className={`modal-btn${isActive ? " active" : ""}`}
+          className={`login-modal__btn${
+            isActive ? " login-modal__btn--active" : ""
+          }`}
           disabled={!isActive}
         >
           Sign In
         </button>
+        <button
+          className="login-modal__btn login-modal__btn--secondary"
+          onClick={onRegisterClick}
+        >
+          <span className="login-modal__btn-or">or</span> <span>Sign Up</span>
+        </button>
+        <button
+          type="button"
+          className="login-modal__btn login-modal__btn--demo"
+          style={{ marginTop: "12px" }}
+          onClick={() => onSignIn("demo")}
+        >
+          Sign in as demo
+        </button>
       </form>
-      <button className="modal-btn secondary" onClick={onRegisterClick}>
-        <span style={{ color: "#111" }}>or</span> <span>Sign Up</span>
-      </button>
-      {/* Mock sign-in for reviewer */}
-      <button
-        type="button"
-        className="modal-btn"
-        style={{ marginTop: "12px" }}
-        onClick={() => onSignIn("demo")}
-      >
-        Sign in as demo
-      </button>
     </ModalWithForm>
   );
 }

@@ -19,10 +19,10 @@ function ModalWithForm({ isOpen, onClose, className = "", children }) {
   }
 
   return (
-    <div className="ModalWithForm__overlay" onClick={handleOverlayClick}>
-      <div className={`ModalWithForm ${className}`}>
+    <div className="modal-with-form__overlay" onClick={handleOverlayClick}>
+      <div className={`modal-with-form ${className}`}>
         <button
-          className="ModalWithForm__close"
+          className="modal-with-form__close"
           onClick={onClose}
           aria-label="Close"
         >

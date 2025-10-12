@@ -15,13 +15,15 @@ function Navigation({
   const location = useLocation();
 
   return (
-    <nav className={`Navigation ${isDark ? "header-dark" : ""}`}>
-      <ul className="desktop-nav">
+    <nav className={`navigation ${isDark ? "navigation--dark" : ""}`}>
+      <ul className="navigation__desktop-list">
         <li>
           <Link
             to="/"
             className={
-              location.pathname === "/" ? "nav-link active" : "nav-link"
+              location.pathname === "/"
+                ? "navigation__link navigation__link--active"
+                : "navigation__link"
             }
             data-underline="home"
           >
@@ -34,8 +36,8 @@ function Navigation({
               to="/saved-news"
               className={
                 location.pathname === "/saved-news"
-                  ? "nav-link active"
-                  : "nav-link"
+                  ? "navigation__link navigation__link--active"
+                  : "navigation__link"
               }
               data-underline="saved"
             >
@@ -45,9 +47,9 @@ function Navigation({
         )}
         <li>
           {user ? (
-            <button className="sign-in-btn" onClick={onLogout}>
+            <button className="navigation__sign-in-btn" onClick={onLogout}>
               {user.username}
-              <span className="logout-icon" aria-label="Log out">
+              <span className="navigation__logout-icon" aria-label="Log out">
                 {/* Paste your SVG here */}
                 {/* Example SVG: */}
                 <img
@@ -64,7 +66,7 @@ function Navigation({
             </button>
           ) : (
             <button
-              className="sign-in-btn"
+              className="navigation__sign-in-btn"
               onClick={() => {
                 setMenuOpen(false);
                 onSignIn();
@@ -76,25 +78,33 @@ function Navigation({
         </li>
       </ul>
       {/* Mobile navigation: only show when menuOpen is true */}
-      {menuOpen && <div className="mobile-overlay"></div>}
+      {menuOpen && <div className="navigation__mobile-overlay"></div>}
       {menuOpen && (
-        <div className={`mobile-nav${menuOpen ? " open" : ""}`}>
-          <Link to="/" className="nav-link" onClick={() => setMenuOpen(false)}>
+        <div
+          className={`navigation__mobile-nav${
+            menuOpen ? " navigation__mobile-nav--open" : ""
+          }`}
+        >
+          <Link
+            to="/"
+            className="navigation__link"
+            onClick={() => setMenuOpen(false)}
+          >
             Home
           </Link>
           {user && (
             <Link
               to="/saved-news"
-              className="nav-link"
+              className="navigation__link"
               onClick={() => setMenuOpen(false)}
             >
               Saved Articles
             </Link>
           )}
           {user ? (
-            <button className="sign-in-btn" onClick={onLogout}>
+            <button className="navigation__sign-in-btn" onClick={onLogout}>
               {user.username}
-              <span className="logout-icon" aria-label="Log out">
+              <span className="navigation__logout-icon" aria-label="Log out">
                 <img
                   src={isDark ? logoutIcon : whiteLogoutIcon}
                   alt="Log out"
@@ -109,7 +119,7 @@ function Navigation({
             </button>
           ) : (
             <button
-              className="sign-in-btn"
+              className="navigation__sign-in-btn"
               onClick={() => {
                 setMenuOpen(false);
                 onSignIn();
