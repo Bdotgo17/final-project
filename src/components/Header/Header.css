@@ -230,7 +230,7 @@
     cursor: pointer;
   }
 
-  .mobile__nav {
+  .navigation__mobile-nav {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -243,8 +243,9 @@
     padding: 32px 24px;
     box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
   }
-  .mobile__nav .nav__link,
-  .mobile__nav .sign__in-btn {
+
+  .navigation__mobile-nav .navigation__link,
+  .navigation__mobile-nav .navigation__sign-in-btn {
     width: 100%;
     margin-bottom: 24px;
     font-size: 20px;
@@ -254,7 +255,9 @@
     color: #fff;
     border: none;
     padding: 12px 0;
+    display: flex;
   }
+
   .header__hamburger-icon {
     filter: none;
   }

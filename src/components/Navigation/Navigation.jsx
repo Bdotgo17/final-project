@@ -120,6 +120,7 @@ function Navigation({
             <button
               className="navigation__sign-in-btn"
               onClick={() => {
+                console.log("Mobile Sign in button clicked");
                 setMenuOpen(false);
                 onSignIn();
               }}

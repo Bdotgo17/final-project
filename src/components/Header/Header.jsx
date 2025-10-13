@@ -20,7 +20,10 @@ function Header({ showSavedLink, user, onSignIn, onLogout }) {
           <span className="header__title">NewsExplorer</span>
           <button
             className="header__menu-btn"
-            onClick={() => setMenuOpen(!menuOpen)}
+            onClick={() => {
+              setMenuOpen(!menuOpen);
+              console.log("Burger clicked, menuOpen:", !menuOpen);
+            }}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
           >
             <img
@@ -31,16 +34,16 @@ function Header({ showSavedLink, user, onSignIn, onLogout }) {
               height={24}
             />
           </button>
-          <Navigation
-            showSavedLink={showSavedLink}
-            onSignIn={onSignIn} // Use the handler from Main.jsx
-            user={user}
-            isDark={isDark}
-            onLogout={onLogout}
-            menuOpen={menuOpen}
-            setMenuOpen={setMenuOpen}
-          />
         </div>
+        <Navigation
+          showSavedLink={showSavedLink}
+          onSignIn={onSignIn} // Use the handler from Main.jsx
+          user={user}
+          isDark={isDark}
+          onLogout={onLogout}
+          menuOpen={menuOpen}
+          setMenuOpen={setMenuOpen}
+        />
       </header>
     </>
   );
