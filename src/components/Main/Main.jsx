@@ -111,7 +111,7 @@ function Main({
           <Header
             user={user}
             showSavedLink={showSavedLink}
-            onSignIn={() => setIsLoginOpen && setIsLoginOpen(true)}
+            onSignIn={() => setIsLoginOpen(true)}
             onLogout={useMockAuth ? handleLogout : onLogout}
           />{" "}
           <section className="main__hero-section">

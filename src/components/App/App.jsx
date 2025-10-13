@@ -6,6 +6,7 @@ import SavedNews from "../../pages/SavedNews";
 import { useState } from "react";
 import { fetchNews } from "../../utils/newsApi";
 import Header from "../Header/Header";
+import LoginModal from "../LoginModal/LoginModal";
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -13,11 +14,11 @@ function App() {
   const [error, setError] = useState("");
   const [showCount, setShowCount] = useState(3);
   const [user, setUser] = useState(null);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
 
   const showSavedLink = articles.length > 0;
   const [savedArticles, setSavedArticles] = useState([]);
   const navigate = useNavigate();
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
 
   function handleShowMore() {
     setShowCount((prev) => prev + 3);
@@ -58,8 +59,10 @@ function App() {
                 setSavedArticles={setSavedArticles}
                 onLogout={handleLogout}
                 onSaveArticle={handleSaveArticle}
-                isLoginOpen={isLoginOpen}
-                setIsLoginOpen={setIsLoginOpen}
+                onSignIn={() => {
+                  console.log("Sign in clicked");
+                  setIsLoginOpen(true);
+                }}
               />
             </>
           }
@@ -84,6 +87,12 @@ function App() {
           }
         />
       </Routes>
+      <LoginModal
+        isOpen={isLoginOpen}
+        onClose={() => setIsLoginOpen(false)}
+        setUser={setUser}
+        // ...other props as needed...
+      />
       <Footer />
     </div>
   );

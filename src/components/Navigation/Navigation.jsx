@@ -50,8 +50,6 @@ function Navigation({
             <button className="navigation__sign-in-btn" onClick={onLogout}>
               {user.username}
               <span className="navigation__logout-icon" aria-label="Log out">
-                {/* Paste your SVG here */}
-                {/* Example SVG: */}
                 <img
                   src={isDark ? logoutIcon : whiteLogoutIcon}
                   alt="Log out"
@@ -68,6 +66,7 @@ function Navigation({
             <button
               className="navigation__sign-in-btn"
               onClick={() => {
+                console.log("Sign in button clicked in Navigation");
                 setMenuOpen(false);
                 onSignIn();
               }}
