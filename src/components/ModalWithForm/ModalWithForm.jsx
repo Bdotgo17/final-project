@@ -20,16 +20,14 @@ function ModalWithForm({ isOpen, onClose, className = "", children }) {
 
   return (
     <div className="modal-with-form__overlay" onClick={handleOverlayClick}>
-      <div className={`modal-with-form ${className}`}>
-        <button
-          className="modal-with-form__close"
-          onClick={onClose}
-          aria-label="Close"
-        >
-          <img src={closeIcon} alt="Close" />
-        </button>
-        {children}
-      </div>
+      <button
+        className="modal-with-form__close"
+        onClick={onClose}
+        aria-label="Close"
+      >
+        <img src={closeIcon} alt="Close" />
+      </button>
+      <div className={`modal-with-form ${className}`}>{children}</div>
     </div>
   );
 }

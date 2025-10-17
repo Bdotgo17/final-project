@@ -62,6 +62,7 @@
 
 .login-modal__btn-or {
   color: #111;
+  margin-right: 8px; /* adds space between "or" and "Sign up" */
 }
 
 .login-modal__btn--demo {
@@ -119,4 +120,48 @@
 .login-modal__btn--secondary:focus {
   outline: none;
   box-shadow: none;
+}
+
+.login-modal__btn-signup {
+  color: #2f71e5;
+}
+
+@media (max-width: 320px) {
+  .login-modal__btn,
+  .login-modal__btn-demo {
+    width: 288px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    border-radius: 100px;
+    border: 2px solid #fff;
+    box-sizing: border-box;
+    margin: 16px auto; /* optional: centers the button horizontally */
+  }
+
+  .login-modal__btn-or-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* centers the row horizontally */
+    align-items: center;
+    gap: 4px; /* reduce gap for closer spacing */
+    margin-top: 12px;
+    width: 100%; /* ensures full row width */
+    padding: 0;
+  }
+
+  .login-modal__btn-or {
+    margin: 0; /* remove any default margin */
+    padding: 0; /* remove any default padding */
+    text-align: center; /* center the text */
+    flex-shrink: 0; /* prevent shrinking */
+    min-width: 18px; /* prevents "or" from shrinking too much */
+  }
+
+  .login-modal__btn--secondary {
+    margin: 0;
+    padding: 0 8px;
+  }
 }

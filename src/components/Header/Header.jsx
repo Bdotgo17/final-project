@@ -15,35 +15,39 @@ function Header({ showSavedLink, user, onSignIn, onLogout }) {
 
   return (
     <>
-      <header className={`header${isDark ? " header--dark" : ""}`}>
-        <div className="header__content">
-          <span className="header__title">NewsExplorer</span>
-          <button
-            className="header__menu-btn"
-            onClick={() => {
-              setMenuOpen(!menuOpen);
-              console.log("Burger clicked, menuOpen:", !menuOpen);
-            }}
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-          >
-            <img
-              src={menuOpen ? mobileCloseIcon : hamburgerIconSrc}
-              alt={menuOpen ? "Close menu" : "Open menu"}
-              className="header__hamburger-icon"
-              width={24}
-              height={24}
-            />
-          </button>
+      <header
+        className={`header${isSavedNews ? " header--light" : " header--dark"}`}
+      >
+        <div className={`header${menuOpen ? " header--nav-open" : ""}`}>
+          <div className="header__content">
+            <span className="header__title">NewsExplorer</span>
+            <button
+              className="header__menu-btn"
+              onClick={() => {
+                setMenuOpen(!menuOpen);
+                console.log("Burger clicked, menuOpen:", !menuOpen);
+              }}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+            >
+              <img
+                src={menuOpen ? mobileCloseIcon : hamburgerIconSrc}
+                alt={menuOpen ? "Close menu" : "Open menu"}
+                className="header__hamburger-icon"
+                width={24}
+                height={24}
+              />
+            </button>
+          </div>
+          <Navigation
+            showSavedLink={showSavedLink}
+            onSignIn={onSignIn} // Use the handler from Main.jsx
+            user={user}
+            isDark={isDark}
+            onLogout={onLogout}
+            menuOpen={menuOpen}
+            setMenuOpen={setMenuOpen}
+          />
         </div>
-        <Navigation
-          showSavedLink={showSavedLink}
-          onSignIn={onSignIn} // Use the handler from Main.jsx
-          user={user}
-          isDark={isDark}
-          onLogout={onLogout}
-          menuOpen={menuOpen}
-          setMenuOpen={setMenuOpen}
-        />
       </header>
     </>
   );

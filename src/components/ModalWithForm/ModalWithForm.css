@@ -27,24 +27,18 @@
 
 .modal-with-form__close {
   position: absolute;
-  top: -50px; /* adjust as needed */
-  right: -50px; /* adjust as needed */
+  top: 148px;
+  right: 78px;
+  z-index: 2001;
   background: transparent;
   border: none;
   cursor: pointer;
-  z-index: 1100;
   padding: 0;
   width: 40px;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.modal-with-form__close img {
-  width: 40px;
-  height: 40px;
-  display: block;
 }
 
 /* Responsive modal styles */
@@ -58,5 +52,28 @@
   .modal-with-form__overlay {
     width: 98vw;
     padding: 8px;
+  }
+}
+
+@media (max-width: 320px) {
+  .modal-with-form {
+    position: relative;
+    padding-top: 48px; /* ensures space for the close button */
+  }
+
+  .modal-with-form__close {
+    position: absolute;
+    top: 88px;
+    right: 16px;
+    z-index: 2001;
+    background: transparent;
+    border: none;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

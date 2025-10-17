@@ -73,12 +73,18 @@ function LoginModal({ isOpen, onClose, onRegisterClick, onSignIn, setUser }) {
         >
           Sign In
         </button>
-        <button
-          className="login-modal__btn login-modal__btn--secondary"
-          onClick={onRegisterClick}
-        >
-          <span className="login-modal__btn-or">or</span> <span>Sign Up</span>
-        </button>
+
+        <div className="login-modal__btn-or-row">
+          <button
+            className="login-modal__btn login-modal__btn--secondary"
+            type="button"
+            onClick={onRegisterClick}
+          >
+            <span className="login-modal__btn-or">or</span>&nbsp;
+            <span className="login-modal__btn-signup">Sign up</span>
+          </button>
+        </div>
+
         <button
           type="button"
           className="login-modal__btn login-modal__btn--demo"

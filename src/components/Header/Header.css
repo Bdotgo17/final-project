@@ -39,10 +39,9 @@
   height: 100%;
 }
 
-.header--dark,
-.header.header--dark .header__title {
-  background: #fff;
-  color: #111 !important;
+.header--dark .header__title {
+  background: transparent !important;
+  color: #fff;
 }
 
 /* ===== Hero Wrapper ===== */
@@ -161,9 +160,28 @@
 /* ===== Mobile (≤320px) ===== */
 @media (max-width: 320px) {
   .header {
+    position: absolute;
+    left: 24px; /* move right from the left edge */
+    margin-left: 0;
     height: 56px;
     max-width: 320px;
     padding: 0;
+  }
+
+  .header--dark .header__title {
+    background: transparent !important;
+    color: #fff;
+    position: absolute;
+    left: 24px; /* move right from the left edge */
+    margin-left: 0;
+  }
+
+  .header--light .header__title {
+    background: #fff;
+    color: #111;
+    position: absolute;
+    left: 34px; /* move right from the left edge */
+    margin-left: 0;
   }
 
   .header__content {
@@ -237,6 +255,7 @@
     position: absolute;
     top: 56px;
     left: 0;
+    height: auto;
     width: 100vw;
     background: #111;
     z-index: 100;
@@ -247,6 +266,7 @@
   .navigation__mobile-nav .navigation__link,
   .navigation__mobile-nav .navigation__sign-in-btn {
     width: 100%;
+    height: auto;
     margin-bottom: 24px;
     font-size: 20px;
     text-align: left;

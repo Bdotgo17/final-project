@@ -19,6 +19,7 @@ function App() {
   const showSavedLink = articles.length > 0;
   const [savedArticles, setSavedArticles] = useState([]);
   const navigate = useNavigate();
+  const [searchKeyword, setSearchKeyword] = useState("");
 
   function handleShowMore() {
     setShowCount((prev) => prev + 3);
@@ -30,10 +31,14 @@ function App() {
     navigate("/"); // Redirect to home page
   }
 
-  function handleSaveArticle(article) {
-    if (!savedArticles.find((a) => a.id === article.id)) {
-      setSavedArticles([...savedArticles, article]);
-    }
+  function handleSaveArticle(article, keyword) {
+    setSavedArticles((prev) => {
+      const updated = prev.some((a) => a.url === article.url)
+        ? prev.filter((a) => a.url !== article.url) // Unsave if already saved
+        : [...prev, { ...article, keyword }]; // <-- use the keyword argument here
+      console.log("Updated savedArticles:", updated);
+      return updated;
+    });
   }
 
   function handleRemoveArticle(articleUrl) {
@@ -63,6 +68,8 @@ function App() {
                   console.log("Sign in clicked");
                   setIsLoginOpen(true);
                 }}
+                searchKeyword={searchKeyword}
+                setSearchKeyword={setSearchKeyword}
               />
             </>
           }

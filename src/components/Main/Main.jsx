@@ -4,7 +4,7 @@ import SearchForm from "../SearchForm/SearchForm";
 import Preloader from "../Preloader/Preloader";
 import NewsCard from "../NewsCard/NewsCard";
 import georgia from "../../assets/georgia.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import authorImg from "../../assets/author.jpg";
 import nothingFoundImg from "../../assets/nothing-found.svg";
 import LoginModal from "../LoginModal/LoginModal";
@@ -17,9 +17,20 @@ import About from "../About/About";
 
 // Example articles
 const demoArticles = [
-  { id: 1, title: "First Article", content: "Lorem ipsum..." },
-  { id: 2, title: "Second Article", content: "Dolor sit amet..." },
+  {
+    id: 1,
+    title: "First Article",
+    content: "Lorem ipsum...",
+    url: "https://example.com/1",
+  },
+  {
+    id: 2,
+    title: "Second Article",
+    content: "Dolor sit amet...",
+    url: "https://example.com/2",
+  },
 ];
+
 const useMockAuth = true; // Set to false for real logic
 
 function Main({
@@ -29,6 +40,7 @@ function Main({
   savedArticles,
   setSavedArticles,
   onLogout,
+  onSaveArticle,
 }) {
   // Modal state
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -42,11 +54,20 @@ function Main({
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState("");
   const [showCount, setShowCount] = useState(3);
+  const [searchKeyword, setSearchKeyword] = useState("");
+
+  useEffect(() => {
+    const savedUser = localStorage.getItem("user");
+    if (savedUser) {
+      setUser(JSON.parse(savedUser));
+    }
+  }, []);
 
   async function handleSearch(query) {
     setHasSearched(true);
     setShowPreloader(true);
     setCurrentKeyword(query);
+    setSearchKeyword(query); // <-- Add this line!
     setError("");
     setArticles([]);
 
@@ -76,25 +97,15 @@ function Main({
 
   function handleSignIn(username) {
     setUser({ username });
+    localStorage.setItem("user", JSON.stringify({ username })); // <-- persist user
     setIsLoginOpen(false);
-    window.location.hash = "#/saved-news"; // Redirect after login for HashRouter
+    window.location.hash = "#/saved-news"; // If using HashRouter
   }
 
   function handleLogout() {
     setUser(null);
     setSavedArticles([]);
     window.location.hash = "#/"; // redirect for HashRouter
-  }
-
-  function handleSaveArticle(article) {
-    setSavedArticles((prev) => {
-      // If already saved, remove it (unsave)
-      if (prev.some((a) => a.url === article.url)) {
-        return prev.filter((a) => a.url !== article.url);
-      }
-      // If not saved, add it
-      return [...prev, { ...article, keyword: currentKeyword }];
-    });
   }
 
   function handleRemoveArticle(articleId) {
@@ -126,15 +137,27 @@ function Main({
               <>
                 <h2 className="main__results-title">Search results</h2>
                 <div className="main__news-cards-list">
-                  {articles.slice(0, showCount).map((article, idx) => (
-                    <NewsCard
-                      key={idx}
-                      article={article}
-                      isSaved={savedArticles.some((a) => a.url === article.url)}
-                      onSave={handleSaveArticle}
-                      isLoggedIn={!!user}
-                    />
-                  ))}
+                  {articles.slice(0, showCount).map((article, idx) => {
+                    console.log(
+                      "Rendering article:",
+                      article.url,
+                      "isSaved:",
+                      savedArticles.some((a) => a.url === article.url)
+                    );
+                    return (
+                      <NewsCard
+                        key={idx}
+                        article={{ ...article, keyword: searchKeyword }}
+                        isSaved={savedArticles.some(
+                          (a) => a.url === article.url
+                        )}
+                        onSave={(article) =>
+                          onSaveArticle(article, searchKeyword)
+                        }
+                        isLoggedIn={!!user}
+                      />
+                    );
+                  })}
                 </div>
                 {showCount < articles.length && (
                   <button

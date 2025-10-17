@@ -12,17 +12,19 @@
   margin: 0;
 }
 
+/* Navigation Links */
 .navigation__link {
   text-decoration: none;
   color: #fff;
-  font-weight: 500;
-  font-size: 1.1rem;
-}
-
-/* Target only the first link (Home) */
-.navigation__desktop-list li:first-child .navigation__link {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
+  font-size: 1.1rem;
+  background: transparent;
+  position: relative;
+  transition: color 0.2s;
+}
+
+.navigation__desktop-list li:first-child .navigation__link {
   font-size: 18px;
   margin-right: 42px;
 }
@@ -140,18 +142,52 @@
   color: #fff;
 }
 
-.header-dark .navigation__link,
-.header-dark .navigation__sign-in-btn {
-  color: #111 !important;
+/* Color overrides for dark/light header */
+.header--dark .navigation__link,
+.header--dark .navigation__sign-in-btn,
+.header--dark .navigation__user-name {
+  color: white !important;
+  border-color: white !important;
 }
 
-.header-dark .navigation__link.active::after {
+.header--dark .navigation__link.active::after {
   background: #111 !important;
 }
 
-/* Username button (sign-in-btn) black oval in dark header */
-.header-dark .navigation__sign-in-btn {
-  border-color: #111 !important;
+.header--light .navigation__sign-in-btn,
+.header--light .navigation__user-name {
+  color: black !important;
+  border-color: black !important;
+}
+
+.header--light .navigation__sign-in-btn {
+  color: black !important;
+  border-color: black !important;
+}
+
+.navigation__user-circle {
+  width: 32px;
+  height: 32px;
+  background: #e5e5e5;
+  color: #2f71e5;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.navigation__user-name {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: inherit;
+  margin-right: 8px;
+}
+
+.navigation__logout-icon img {
+  width: 16px;
+  height: 16px;
 }
 
 @media (max-width: 768px) {
@@ -271,7 +307,6 @@
     top: 0;
     left: 0;
     width: 100vw;
-    height: 230px;
     background: #111;
     z-index: 999;
     padding: 32px 24px;
@@ -290,10 +325,12 @@
     display: block !important;
     background: rgba(26, 27, 34, 1);
     position: fixed;
-    top: 0x; /* Below the header */
+    top: 0; /* Below the header */
     left: 0;
     width: 320px;
     height: 174px;
+    min-height: 230px;
+    height: auto;
     z-index: 999;
     padding: 52px 24px;
     box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
@@ -313,10 +350,18 @@
     text-align: left;
     border-radius: 12px;
     background: transparent;
-    color: #fff;
+    color: #fff !important;
     border: none;
-    padding: 12px 0;
     display: flex;
+    align-items: center;
+    transition: background 0.2s, color 0.2s;
+    cursor: pointer;
+  }
+
+  .navigation__mobile-nav .navigation__link:hover,
+  .navigation__mobile-nav .navigation__link:focus {
+    background: #222;
+    color: #2f71e5;
   }
 
   .navigation__mobile-nav .navigation__link:first-child {
@@ -324,6 +369,9 @@
   }
 
   .navigation__mobile-nav .navigation__sign-in-btn {
+    position: static;
+    width: 100%;
+    margin-top: 52px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -378,5 +426,20 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  .navigation__mobile-nav--open ~ .header__content .header__title,
+  .navigation__mobile-nav--open ~ .header__title,
+  .navigation__mobile-nav--open + .header__content .header__title,
+  .navigation__mobile-nav--open + .header__title,
+  .navigation__mobile-nav--open .header__title,
+  .navigation__mobile-nav--open ~ .header .header__title {
+    background: #111 !important;
+    color: #fff !important;
+  }
+
+  .header--nav-open .header__title {
+    background: #111 !important;
+    color: #fff !important;
   }
 }

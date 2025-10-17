@@ -65,3 +65,80 @@
   min-height: 182px !important;
   max-height: 182px !important;
 }
+
+@media (max-width: 320px) {
+  .register-modal__form {
+    /* Copy desktop styles here if needed */
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+    padding: 24px 26px;
+    border-radius: 12px;
+    background: #fff;
+    /* Add any other desktop styles you want to keep */
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: 0;
+  }
+
+  .register-modal__form label,
+  .register-modal__form .register-modal__label {
+    color: #2f71e5; /* blue */
+  }
+
+  .register-modal__form .register-modal__btn {
+    width: 288px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    border-radius: 100px;
+    border: 2px solid rgba(230, 232, 235, 1); /* or your preferred color */
+    background: rgba(230, 232, 235, 1);
+    color: rgba(182, 188, 191, 1);
+    box-sizing: border-box;
+    margin: 16px auto; /* centers the button horizontally */
+  }
+  .register-modal__form input[type="text"],
+  .register-modal__form input[type="email"],
+  .register-modal__form input[type="password"] {
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 1); /* blue underline */
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    outline: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .register-modal__form .register-modal__btn--secondary {
+    background: transparent !important;
+    border: none !important;
+    color: #2f71e5; /* blue text */
+    box-shadow: none !important;
+    width: auto; /* or your preferred width */
+    height: auto; /* or your preferred height */
+    margin: 0 8px; /* optional: spacing */
+    padding: 0 8px; /* optional: spacing */
+    font-size: 18px;
+    border-radius: 0;
+  }
+
+  .register-modal--success {
+    padding: 24px 26px !important;
+  }
+
+  .register-modal__success-signin-btn {
+    position: static;
+    left: auto;
+    bottom: auto;
+    margin: 24px auto 0 auto; /* space above, center horizontally */
+    display: block;
+    text-align: center;
+  }
+}

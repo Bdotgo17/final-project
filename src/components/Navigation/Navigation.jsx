@@ -14,8 +14,14 @@ function Navigation({
 }) {
   const location = useLocation();
 
+  // Helper: close menu and navigate
+  const handleNavClick = () => setMenuOpen(false);
+
+  console.log("Navigation render: user =", user, "menuOpen =", menuOpen);
+
   return (
     <nav className={`navigation ${isDark ? "navigation--dark" : ""}`}>
+      {/* Desktop navigation */}
       <ul className="navigation__desktop-list">
         <li>
           <Link
@@ -48,7 +54,7 @@ function Navigation({
         <li>
           {user ? (
             <button className="navigation__sign-in-btn" onClick={onLogout}>
-              {user.username}
+              <span className="navigation__user-name">{user.username}</span>
               <span className="navigation__logout-icon" aria-label="Log out">
                 <img
                   src={isDark ? logoutIcon : whiteLogoutIcon}
@@ -66,7 +72,6 @@ function Navigation({
             <button
               className="navigation__sign-in-btn"
               onClick={() => {
-                console.log("Sign in button clicked in Navigation");
                 setMenuOpen(false);
                 onSignIn();
               }}
@@ -76,32 +81,38 @@ function Navigation({
           )}
         </li>
       </ul>
-      {/* Mobile navigation: only show when menuOpen is true */}
-      {menuOpen && <div className="navigation__mobile-overlay"></div>}
+
+      {/* Mobile navigation overlay */}
       {menuOpen && (
         <div
-          className={`navigation__mobile-nav${
-            menuOpen ? " navigation__mobile-nav--open" : ""
-          }`}
-        >
-          <Link
-            to="/"
-            className="navigation__link"
-            onClick={() => setMenuOpen(false)}
-          >
+          className="navigation__mobile-overlay"
+          onClick={handleNavClick}
+        ></div>
+      )}
+
+      {/* Mobile navigation menu */}
+      {menuOpen && (
+        <div className="navigation__mobile-nav navigation__mobile-nav--open">
+          <Link to="/" className="navigation__link" onClick={handleNavClick}>
             Home
           </Link>
           {user && (
             <Link
               to="/saved-news"
               className="navigation__link"
-              onClick={() => setMenuOpen(false)}
+              onClick={handleNavClick}
             >
               Saved Articles
             </Link>
           )}
           {user ? (
-            <button className="navigation__sign-in-btn" onClick={onLogout}>
+            <button
+              className="navigation__sign-in-btn"
+              onClick={() => {
+                handleNavClick();
+                onLogout();
+              }}
+            >
               {user.username}
               <span className="navigation__logout-icon" aria-label="Log out">
                 <img
@@ -120,8 +131,7 @@ function Navigation({
             <button
               className="navigation__sign-in-btn"
               onClick={() => {
-                console.log("Mobile Sign in button clicked");
-                setMenuOpen(false);
+                handleNavClick();
                 onSignIn();
               }}
             >

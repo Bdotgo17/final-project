@@ -86,8 +86,8 @@
   transition: color 0.2s;
 }
 
-.news__card-save-icon:hover {
-  box-shadow: 0 4px 16px rgba(47, 113, 229, 0.15);
+.news__card-header:hover .news__card-keyword-label {
+  border: 2px solid #111;
 }
 
 .news__card-save-icon svg {
@@ -96,7 +96,7 @@
   transition: stroke 0.2s, fill 0.2s;
 }
 
-.news__card-save-icon.saved svg {
+.news__card-save-icon--saved svg {
   stroke: #2f71e5;
   fill: #2f71e5;
 }
@@ -111,6 +111,18 @@
   top: 24px; /* Adjust this value to lower it as needed */
   left: 24px; /* Or whatever your card's padding is */
   min-height: 40px; /* Ensures at least 40px tall */
+  line-height: 40px;
+  display: inline-block;
+  background: #fff;
+  color: #111;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0px;
+  text-align: center;
+  border-radius: 10px;
+  margin-right: 8px;
+  vertical-align: middle;
   padding: 0 16px; /* Keeps width flexible for content */
   display: flex;
   align-items: center; /* Vertically center the text */
@@ -119,9 +131,17 @@
   font-family: "Roboto", sans-serif;
   font-size: 12px;
   font-weight: 500;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   z-index: 2;
-  width: auto;
+  border: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.news__card-keyword-label--hovered {
+  background-image: url("../../assets/blackRibbon.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #111;
+  border: none;
 }
 
 .news__card-header {
@@ -130,11 +150,11 @@
 
 .news__card-trashcan-wrapper {
   position: absolute;
-  top: 24px;
-  right: 24px;
+  top: 2px;
+  right: -2px;
   display: flex;
-  align-items: flex-start;
-  flex-direction: column;
+  align-items: center;
+  flex-direction: row;
   z-index: 3;
 }
 
@@ -221,10 +241,6 @@
   }
 
   .news__card-keyword-label {
-    position: absolute;
-    top: 24px; /* Adjust this value to lower it as needed */
-    left: 14px; /* Or whatever your card's padding is */
-    min-height: 40px; /* Ensures at least 40px tall */
     padding: 0 16px; /* Keeps width flexible for content */
     display: flex;
     align-items: center; /* Vertically center the text */
@@ -233,9 +249,7 @@
     font-family: "Roboto", sans-serif;
     font-size: 12px;
     font-weight: 500;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     z-index: 2;
-    width: auto;
   }
 
   .news__card-image {
@@ -319,8 +333,14 @@
 
 @media (max-width: 320px) {
   .news__card {
+    position: relative;
+
     width: 288px;
     height: 440px;
+  }
+
+  .news__card-header {
+    position: relative;
   }
 
   .news__card-image {
@@ -395,5 +415,38 @@
     text-align: left;
     border-radius: 6px;
     display: inline-block;
+  }
+
+  .news__card-keyword-label {
+    position: absolute;
+    top: 24px; /* Adjust this value to lower it as needed */
+    left: 24px; /* Or whatever your card's padding is */
+    min-height: 40px; /* Ensures at least 40px tall */
+    line-height: 40px;
+    display: inline-block;
+    background: #fff;
+    color: #111;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0px;
+    text-align: center;
+    border-radius: 10px;
+    margin-right: 8px;
+    vertical-align: middle;
+    border: 2px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .news__card-trashcan-wrapper,
+  .news__card-save-icon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    z-index: 3;
   }
 }
