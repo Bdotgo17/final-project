@@ -115,10 +115,8 @@ function Main({
   return (
     <>
       <main className="main">
-        <div
-          className="main__hero-wrapper"
-          style={{ background: `url(${georgia}) center/cover no-repeat` }}
-        >
+        {" "}
+        <div className="main__hero-wrapper main__hero-wrapper--with-bg">
           <Header
             user={user}
             showSavedLink={showSavedLink}
@@ -129,7 +127,6 @@ function Main({
             <SearchForm onSearch={handleSearch} />
           </section>
         </div>
-
         {/* Conditionally render results-block only after a search */}
         {hasSearched && (
           <section className="main__results-block">

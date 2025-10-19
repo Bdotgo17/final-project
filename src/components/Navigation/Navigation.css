@@ -185,9 +185,12 @@
   margin-right: 8px;
 }
 
-.navigation__logout-icon img {
-  width: 16px;
-  height: 16px;
+.navigation__logout-img {
+  margin-left: 8px;
+  vertical-align: middle;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
 }
 
 @media (max-width: 768px) {

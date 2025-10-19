@@ -8,6 +8,14 @@
   align-items: center;
 }
 
+.main__hero-wrapper--with-bg {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* path relative to CSS file; adjust if your assets folder differs */
+  background-image: url("../../assets/georgia.svg");
+}
+
 .main__results-block {
   width: 100%;
   max-width: 1440px;

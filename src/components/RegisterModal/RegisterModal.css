@@ -10,6 +10,10 @@
   text-align: center;
 }
 
+.register-modal__or {
+  color: #111;
+}
+
 .modal-with-form.register-modal__form.register-modal__form {
   width: 430px !important;
   min-height: 458px !important;

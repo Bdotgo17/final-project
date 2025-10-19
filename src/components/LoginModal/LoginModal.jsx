@@ -87,8 +87,7 @@ function LoginModal({ isOpen, onClose, onRegisterClick, onSignIn, setUser }) {
 
         <button
           type="button"
-          className="login-modal__btn login-modal__btn--demo"
-          style={{ marginTop: "12px" }}
+          className="login-modal__btn login-modal__btn--demo login-modal__btn--spaced"
           onClick={() => onSignIn("demo")}
         >
           Sign in as demo

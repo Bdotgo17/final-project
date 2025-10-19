@@ -6,7 +6,7 @@ function RegisterModal({ isOpen, onClose, onLoginClick }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
-  const [emailTaken] = useState(false); 
+  const [emailTaken] = useState(false);
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
   const isActive =
@@ -113,7 +113,8 @@ function RegisterModal({ isOpen, onClose, onLoginClick }) {
             className="register-modal__btn register-modal__btn--secondary"
             onClick={onLoginClick}
           >
-            <span style={{ color: "#111" }}>or</span> <span>Sign In</span>
+            + <span className="register-modal__or">or</span>{" "}
+            <span>Sign In</span>
           </button>
         </>
       )}

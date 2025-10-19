@@ -58,12 +58,7 @@ function Navigation({
                 <img
                   src={isDark ? logoutIcon : whiteLogoutIcon}
                   alt="Log out"
-                  style={{
-                    marginLeft: "8px",
-                    verticalAlign: "middle",
-                    width: "18px",
-                    height: "18px",
-                  }}
+                  className="navigation__logout-img"
                 />
               </span>
             </button>
@@ -117,12 +112,7 @@ function Navigation({
                 <img
                   src={isDark ? logoutIcon : whiteLogoutIcon}
                   alt="Log out"
-                  style={{
-                    marginLeft: "8px",
-                    verticalAlign: "middle",
-                    width: "18px",
-                    height: "18px",
-                  }}
+                  className="navigation__logout-img"
                 />
               </span>
             </button>
