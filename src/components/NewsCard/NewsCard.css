@@ -93,7 +93,13 @@
 .news__card-save-icon svg {
   stroke: #b6bcbf;
   fill: none;
-  transition: stroke 0.2s, fill 0.2s;
+  transition: stroke 0.15s ease;
+  pointer-events: none;
+}
+
+/* when hovering the button (only when NOT saved) */
+.news__card-save-icon:not(.news__card-save-icon--saved):hover svg {
+  stroke: #111;
 }
 
 .news__card-save-icon--saved svg {

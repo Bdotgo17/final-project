@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./SavedNews.css";
 import NewsCard from "../components/NewsCard/NewsCard"; // adjust the path as needed
 

@@ -4,15 +4,14 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import SavedNews from "../../pages/SavedNews";
 import { useState } from "react";
-import { fetchNews } from "../../utils/newsApi";
 import Header from "../Header/Header";
 import LoginModal from "../LoginModal/LoginModal";
 
 function App() {
-  const [articles, setArticles] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-  const [showCount, setShowCount] = useState(3);
+  const [articles] = useState([]);
+  const [loading] = useState(false);
+  const [error] = useState("");
+  const [showCount, _setShowCount] = useState(3);
   const [user, setUser] = useState(null);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
 
@@ -20,10 +19,6 @@ function App() {
   const [savedArticles, setSavedArticles] = useState([]);
   const navigate = useNavigate();
   const [searchKeyword, setSearchKeyword] = useState("");
-
-  function handleShowMore() {
-    setShowCount((prev) => prev + 3);
-  }
 
   function handleLogout() {
     setUser(null); // Log out the user

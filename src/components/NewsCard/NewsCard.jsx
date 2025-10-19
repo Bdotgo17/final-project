@@ -21,7 +21,6 @@ function NewsCard({
   onDelete,
 }) {
   const [showTooltip, setShowTooltip] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
   const [saveHovered, setSaveHovered] = useState(false);
 
   function handleSaveClick(e) {

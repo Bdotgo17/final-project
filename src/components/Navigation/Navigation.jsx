@@ -4,7 +4,6 @@ import logoutIcon from "../../assets/logout.svg"; // Adjust the path if needed
 import whiteLogoutIcon from "../../assets/whiteLogout.svg"; // white icon
 
 function Navigation({
-  showSavedLink,
   user,
   onSignIn,
   onLogout,

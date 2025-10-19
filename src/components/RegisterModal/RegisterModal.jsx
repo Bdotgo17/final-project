@@ -6,7 +6,7 @@ function RegisterModal({ isOpen, onClose, onLoginClick }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
-  const [emailTaken, setEmailTaken] = useState(false); // <-- new state
+  const [emailTaken] = useState(false); 
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
   const isActive =

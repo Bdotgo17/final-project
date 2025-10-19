@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation} from "react-router-dom";
 import "./Header.css";
 import Navigation from "../Navigation/Navigation";
 import hamburgerIcon from "../../assets/hamburger.svg";

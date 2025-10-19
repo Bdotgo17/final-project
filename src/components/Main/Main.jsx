@@ -5,7 +5,6 @@ import Preloader from "../Preloader/Preloader";
 import NewsCard from "../NewsCard/NewsCard";
 import georgia from "../../assets/georgia.svg";
 import { useEffect, useState } from "react";
-import authorImg from "../../assets/author.jpg";
 import nothingFoundImg from "../../assets/nothing-found.svg";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
@@ -16,7 +15,7 @@ import { HashRouter } from "react-router-dom";
 import About from "../About/About";
 
 // Example articles
-const demoArticles = [
+const _demoArticles = [
   {
     id: 1,
     title: "First Article",
@@ -41,6 +40,7 @@ function Main({
   setSavedArticles,
   onLogout,
   onSaveArticle,
+  onSignIn = () => {}, // added (default noop)
 }) {
   // Modal state
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -50,7 +50,7 @@ function Main({
   const [hasSearched, setHasSearched] = useState(false);
   const [showPreloader, setShowPreloader] = useState(false);
   const [showMoreActive, setShowMoreActive] = useState(false);
-  const [currentKeyword, setCurrentKeyword] = useState("");
+  const [, setCurrentKeyword] = useState("");
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState("");
   const [showCount, setShowCount] = useState(3);
@@ -61,7 +61,7 @@ function Main({
     if (savedUser) {
       setUser(JSON.parse(savedUser));
     }
-  }, []);
+  }, [setUser]);
 
   async function handleSearch(query) {
     setHasSearched(true);
@@ -79,7 +79,7 @@ function Main({
       } else {
         setError("");
       }
-    } catch (err) {
+    } catch {
       setError(
         "Sorry, something went wrong during the request. Please try again later."
       );
@@ -108,7 +108,7 @@ function Main({
     window.location.hash = "#/"; // redirect for HashRouter
   }
 
-  function handleRemoveArticle(articleId) {
+  function _handleRemoveArticle(articleId) {
     setSavedArticles(savedArticles.filter((a) => a.id !== articleId));
   }
 

@@ -18,6 +18,7 @@
   flex-direction: column;
   gap: 8px; /* space between inputs and button */
   margin-top: 40px; /* adjust as needed for spacing below the title */
+  margin-bottom: 20px;
 }
 
 .login-modal__input {

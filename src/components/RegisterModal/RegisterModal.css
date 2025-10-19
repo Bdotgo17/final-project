@@ -39,13 +39,102 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-top: 16px; /* or 0 if you want the spacing controlled by the title */
+  margin-top: 32px; /* or 0 if you want the spacing controlled by the title */
   align-items: stretch;
   width: 358px;
   justify-content: center;
   padding-left: 36px;
 }
 
+/* Make inputs just a line, no box */
+.register-modal__form input[type="text"],
+.register-modal__form input[type="email"],
+.register-modal__form input[type="password"] {
+  width: 100%;
+  max-width: 358px; /* limit underline length — adjust as needed */
+  border: none;
+  border-bottom: 2px solid #b6bcbf;
+  background: transparent;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 12px 0;
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 1);
+}
+
+/* On focus, make the line darker */
+.register-modal__form input:focus {
+  border-bottom: 2px solid #213547;
+}
+
+.register-modal__label {
+  /* blue background per request */
+  color: rgba(47, 113, 229, 1); /* readable on blue */
+  display: inline-block;
+  border-radius: 6px; /* subtle rounded corners */
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  leading-trim: none;
+  line-height: 100%;
+  letter-spacing: 0%;
+  margin-bottom: 8px; /* spacing from the input below */
+}
+
+.register-modal__form .register-modal__btn {
+  width: 100%;
+  max-width: 360px;
+  height: 64px;
+  margin: 16px 0;
+  background: rgba(230, 232, 235, 1);
+  border: none;
+  color: rgba(182, 188, 191, 1);
+  font-family: Inter, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  border-radius: 100px;
+  cursor: pointer;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-modal__form .register-modal__btn--secondary {
+  background: transparent !important;
+  border: none !important;
+  color: #2f71e5; /* blue text */
+  box-shadow: none !important;
+  width: auto; /* or your preferred width */
+  height: auto; /* or your preferred height */
+  margin: 0 8px; /* optional: spacing */
+  padding: 0 8px; /* optional: spacing */
+  font-size: 18px;
+  border-radius: 0;
+}
+
+.register-modal__btn--secondary{
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  background: transparent;
+  color: #2f71e5;
+  box-shadow: none;
+  border: none;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+/* Make the form and inputs wider on desktop */
+@media (min-width: 768px) {
+  .register-modal__form {
+    width: 430px;
+    max-width: 100%;
+  }
+}
 .register-modal__success-signin-btn {
   position: absolute;
   left: 36px;
@@ -66,6 +155,44 @@
   height: 182px !important;
   min-height: 182px !important;
   max-height: 182px !important;
+}
+
+.register-modal__form .register-modal__btn {
+  width: 100%;
+  max-width: 360px;
+  height: 64px;
+  margin: 16px 0;
+  background: rgba(230, 232, 235, 1);
+  border: none;
+  color: rgba(182, 188, 191, 1);
+  font-family: Inter, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  border-radius: 100px;
+  cursor: pointer;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-modal__form .register-modal__btn--secondary {
+  background: transparent !important;
+  border: none !important;
+  color: #2f71e5; /* blue text */
+  box-shadow: none !important;
+  width: auto; /* or your preferred width */
+  height: auto; /* or your preferred height */
+  margin: 0 8px; /* optional: spacing */
+  padding: 0 8px; /* optional: spacing */
+  font-size: 18px;
+  border-radius: 0;
+}
+
+.register-modal__form .register-modal__btn:hover,
+.register-modal__form .register-modal__btn:focus {
+  background: rgba(214, 216, 219, 1);
+  outline: none;
 }
 
 @media (max-width: 320px) {

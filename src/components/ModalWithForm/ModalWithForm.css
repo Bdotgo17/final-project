@@ -4,15 +4,18 @@
   left: 0;
   right: 0;
   bottom: 0;
+  inset: 0;
+
   background: rgba(0, 0, 0, 0.5); /* dark overlay */
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000; /* high value to overlay everything */
+  z-index: 2000; /* high value to overlay everything */
   padding-top: 0px; /* space from the top */
 }
 
 .modal-with-form {
+  position: relative; /* keep if already present, or add to ensure relative positioning */
   background: #fff;
   max-width: 430px;
   width: 100%;
@@ -21,14 +24,17 @@
   box-shadow: 0 4px 32px rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
-  position: relative;
   align-items: stretch;
 }
 
 .modal-with-form__close {
   position: absolute;
-  top: 148px;
-  right: 78px;
+  /* top: 200px;
+  right: 650px; */
+  top: -20px; /* sit near top-right corner of the modal */
+  right: -20px;
+  transform: translate(50%, -50%);
+
   z-index: 2001;
   background: transparent;
   border: none;
@@ -41,17 +47,25 @@
   justify-content: center;
 }
 
+/* make the img/svg inside the button a consistent size */
+.modal-with-form__close img,
+.modal-with-form__close svg {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
 /* Responsive modal styles */
 @media (max-width: 768px) {
   .modal-with-form__overlay {
     width: 90vw;
     padding: 16px;
   }
-}
-@media (max-width: 400px) {
-  .modal-with-form__overlay {
-    width: 98vw;
-    padding: 8px;
+
+  .modal-with-form__close {
+    transform: translate(45%, -45%);
+    width: 36px;
+    height: 36px;
   }
 }
 
@@ -61,7 +75,18 @@
     padding-top: 48px; /* ensures space for the close button */
   }
 
+  .modal-with-form__overlay {
+    width: 98vw;
+    padding: 8px;
+  }
+
   .modal-with-form__close {
+    transform: translate(40%, -40%);
+    width: 32px;
+    height: 32px;
+  }
+
+  /* .modal-with-form__close {
     position: absolute;
     top: 88px;
     right: 16px;
@@ -75,5 +100,5 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+  } */
 }
