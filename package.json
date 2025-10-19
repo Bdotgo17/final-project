@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/Bdotgo17/final-project.git",
+  "homepage": "https://bdotgo17.github.io/final-project",
   "scripts": {
     "dev": "vite --port 3000",
     "build": "vite build",
