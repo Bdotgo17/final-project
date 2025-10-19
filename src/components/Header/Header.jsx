@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useLocation} from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import "./Header.css";
 import Navigation from "../Navigation/Navigation";
 import hamburgerIcon from "../../assets/hamburger.svg";
 import hamburgerBlackIcon from "../../assets/hamburgerBlack.svg";
 import mobileCloseIcon from "../../assets/mobileClose.svg";
+import logo from "../../assets/logo.svg"; // add your logo file (adjust path/name)
 
 function Header({ showSavedLink, user, onSignIn, onLogout }) {
   const location = useLocation();
@@ -13,6 +14,13 @@ function Header({ showSavedLink, user, onSignIn, onLogout }) {
   const isSavedNews = location.pathname === "/saved-news";
   const hamburgerIconSrc = isSavedNews ? hamburgerBlackIcon : hamburgerIcon;
 
+  console.log(
+    "Header user prop:",
+    user,
+    "localStorage user:",
+    localStorage.getItem("user")
+  );
+
   return (
     <>
       <header
@@ -20,7 +28,11 @@ function Header({ showSavedLink, user, onSignIn, onLogout }) {
       >
         <div className={`header${menuOpen ? " header--nav-open" : ""}`}>
           <div className="header__content">
-            <span className="header__title">NewsExplorer</span>
+            <Link to="/" className="header__brand">
+              <img src={logo} alt="NewsExplorer" className="header__logo" />
+              <span className="header__title">NewsExplorer</span>
+            </Link>
+
             <button
               className="header__menu-btn"
               onClick={() => {
@@ -40,7 +52,7 @@ function Header({ showSavedLink, user, onSignIn, onLogout }) {
           </div>
           <Navigation
             showSavedLink={showSavedLink}
-            onSignIn={onSignIn} // Use the handler from Main.jsx
+            onSignIn={onSignIn} 
             user={user}
             isDark={isDark}
             onLogout={onLogout}
