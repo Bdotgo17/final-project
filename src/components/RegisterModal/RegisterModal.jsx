@@ -28,16 +28,16 @@ function RegisterModal({ isOpen, onClose, onLoginClick }) {
     <ModalWithForm
       isOpen={isOpen}
       onClose={onClose}
+      onSubmit={handleSubmit}
       className={`register-modal${
         registrationSuccess ? " register-modal--success" : ""
       }`}
+      title={
+        registrationSuccess ? "Registration successfully completed!" : "Sign Up"
+      }
     >
-      {" "}
       {registrationSuccess ? (
         <>
-          <h2 className="register-modal__title">
-            Registration successfully completed!
-          </h2>
           <button
             className="register-modal__success-signin-btn"
             onClick={() => {
@@ -50,65 +50,57 @@ function RegisterModal({ isOpen, onClose, onLoginClick }) {
         </>
       ) : (
         <>
-          <h2 className="register-modal__title">Sign Up</h2>
-          <form className="register-modal__form" onSubmit={handleSubmit}>
-            <label className="register-modal__label" htmlFor="register-email">
-              Email
-            </label>
-            <input
-              id="register-email"
-              type="email"
-              placeholder="Enter Email"
-              required
-              className="register-modal__input"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <label
-              className="register-modal__label"
-              htmlFor="register-password"
-            >
-              Password
-            </label>
-            <input
-              id="register-password"
-              type="password"
-              placeholder="Enter Password"
-              required
-              className="register-modal__input"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <label
-              className="register-modal__label"
-              htmlFor="register-username"
-            >
-              Username
-            </label>
-            <input
-              id="register-username"
-              type="text"
-              placeholder="Enter username"
-              required
-              className="register-modal__input"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            {emailTaken && (
-              <div className="register-modal__input-error">
-                This email is not available
-              </div>
-            )}
-            <button
-              type="submit"
-              className={`register-modal__btn${
-                isActive ? " register-modal__btn--active" : ""
-              }`}
-              disabled={!isActive}
-            >
-              Sign Up
-            </button>
-          </form>
+          <label className="register-modal__label" htmlFor="register-email">
+            Email
+          </label>
+          <input
+            id="register-email"
+            type="email"
+            placeholder="Enter Email"
+            required
+            className="register-modal__input"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <label className="register-modal__label" htmlFor="register-password">
+            Password
+          </label>
+          <input
+            id="register-password"
+            type="password"
+            placeholder="Enter Password"
+            required
+            className="register-modal__input"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <label className="register-modal__label" htmlFor="register-username">
+            Username
+          </label>
+          <input
+            id="register-username"
+            type="text"
+            placeholder="Enter username"
+            required
+            className="register-modal__input"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          {emailTaken && (
+            <div className="register-modal__input-error">
+              This email is not available
+            </div>
+          )}
+          <button
+            type="submit"
+            className={`register-modal__btn${
+              isActive ? " register-modal__btn--active" : ""
+            }`}
+            disabled={!isActive}
+          >
+            Sign Up
+          </button>
+
           <button
             className="register-modal__btn register-modal__btn--secondary"
             onClick={onLoginClick}
