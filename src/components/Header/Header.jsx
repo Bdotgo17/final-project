@@ -5,7 +5,6 @@ import Navigation from "../Navigation/Navigation";
 import hamburgerIcon from "../../assets/hamburger.svg";
 import hamburgerBlackIcon from "../../assets/hamburgerBlack.svg";
 import mobileCloseIcon from "../../assets/mobileClose.svg";
-import logo from "../../assets/logo.svg"; // add your logo file (adjust path/name)
 
 function Header({ showSavedLink, user, onSignIn, onLogout }) {
   const location = useLocation();
@@ -28,11 +27,10 @@ function Header({ showSavedLink, user, onSignIn, onLogout }) {
       >
         <div className={`header${menuOpen ? " header--nav-open" : ""}`}>
           <div className="header__content">
-            <span className="header__title">NewsExplorer</span>
             <Link to="/" className="header__brand">
-              <img src={logo} alt="NewsExplorer" className="header__logo" />
               <span className="header__title">NewsExplorer</span>
             </Link>
+            
             <button
               className="header__menu-btn"
               onClick={() => {
