@@ -28,11 +28,11 @@ function Header({ showSavedLink, user, onSignIn, onLogout }) {
       >
         <div className={`header${menuOpen ? " header--nav-open" : ""}`}>
           <div className="header__content">
+            <span className="header__title">NewsExplorer</span>
             <Link to="/" className="header__brand">
               <img src={logo} alt="NewsExplorer" className="header__logo" />
               <span className="header__title">NewsExplorer</span>
             </Link>
-
             <button
               className="header__menu-btn"
               onClick={() => {
@@ -52,7 +52,7 @@ function Header({ showSavedLink, user, onSignIn, onLogout }) {
           </div>
           <Navigation
             showSavedLink={showSavedLink}
-            onSignIn={onSignIn} 
+            onSignIn={onSignIn}
             user={user}
             isDark={isDark}
             onLogout={onLogout}
