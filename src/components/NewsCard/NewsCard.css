@@ -78,7 +78,7 @@
   border-radius: 8px;
   padding: 8px;
   cursor: pointer;
-  z-index: 2;
+  z-index: 10;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   display: flex;
   align-items: center;
@@ -136,12 +136,10 @@
   transition: border-color 0.2s;
 }
 
-.news__card-keyword-label--hovered {
-  background-image: url("../../assets/blackRibbon.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: #111;
-  border: none;
+.news__card-ribbon-svg {
+  width: 60px; /* or whatever width fits your design */
+  height: 24px; /* adjust as needed */
+  display: block;
 }
 
 .news__card-header {

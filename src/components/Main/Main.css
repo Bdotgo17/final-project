@@ -139,7 +139,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  margin: 40px auto 0 auto;
+  margin: 40px auto 40px auto;
 }
 
 .main__news-cards-list .NewsCard {

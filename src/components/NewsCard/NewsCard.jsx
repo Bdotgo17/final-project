@@ -20,8 +20,6 @@ function NewsCard({
   isSavedSection,
   onDelete,
 }) {
-  console.log("Saved card keyword:", article.keyword); // <-- Add here
-
   const [showTooltip, setShowTooltip] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [saveHovered, setSaveHovered] = useState(false);
@@ -45,23 +43,23 @@ function NewsCard({
             className="news__card-image"
           />
         )}
+        {isSavedSection && article.keyword && (
+          <span className="news__card-keyword-label">{article.keyword}</span>
+        )}
         {isSavedSection ? (
           <div className="news__card-trashcan-wrapper">
             {article.keyword && (
               <span className="news__card-keyword-label">
-                {saveHovered ? (
-                  <img src={require("../../assets/blackRibbon.svg")} alt="" />
-                ) : (
-                  article.keyword
-                )}
+                {article.keyword}
               </span>
             )}
             <button
               className="news__card-save-icon"
               onClick={() => onDelete(article)}
+              aria-label="Delete article"
+              // Trashcan hover logic (for saved articles)
               onMouseEnter={() => setSaveHovered(true)}
               onMouseLeave={() => setSaveHovered(false)}
-              aria-label="Delete article"
             >
               <img
                 src={saveHovered ? trashBlack : trashGray}
@@ -70,9 +68,6 @@ function NewsCard({
                 height={24}
               />
             </button>
-            {isHovered && (
-              <div className="news__card-remove-tooltip">Remove from saved</div>
-            )}
           </div>
         ) : (
           <>
@@ -81,16 +76,17 @@ function NewsCard({
                 isSaved ? " news__card-save-icon--saved" : ""
               }`}
               onClick={handleSaveClick}
-              onMouseEnter={() => !isLoggedIn && setShowTooltip(true)}
-              onMouseLeave={() => setShowTooltip(false)}
               aria-label={isSaved ? "Unsave article" : "Save article"}
+              // Save icon hover logic (for home page)
+              onMouseEnter={() => setSaveHovered(true)}
+              onMouseLeave={() => setSaveHovered(false)}
             >
               <svg
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
-                fill="currentColor"
+                stroke={saveHovered ? "#111" : "#b6bcbf"}
+                fill={isSaved ? "#2f71e5" : "none"}
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
