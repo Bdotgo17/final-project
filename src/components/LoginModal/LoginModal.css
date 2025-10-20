@@ -94,7 +94,6 @@
   margin-top: 0;
   height: 16px; /* ensure label is not too tall */
   display: block;
-  padding-left: 36px; /* add this */
   top: 88px;
 }
 

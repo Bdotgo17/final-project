@@ -105,8 +105,7 @@ function RegisterModal({ isOpen, onClose, onLoginClick }) {
             className="register-modal__btn register-modal__btn--secondary"
             onClick={onLoginClick}
           >
-            + <span className="register-modal__or">or</span>{" "}
-            <span>Sign In</span>
+            <span className="register-modal__or">or</span> <span>Sign In</span>
           </button>
         </>
       )}
