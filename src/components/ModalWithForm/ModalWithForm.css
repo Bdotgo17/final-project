@@ -1,0 +1,276 @@
+.modal-with-form__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* dark overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000; /* high value to overlay everything */
+  padding: 16px; /* allow space for small screens */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.modal-with-form {
+  position: relative; /* keep if already present, or add to ensure relative positioning */
+  background: #fff;
+  max-width: 430px;
+  width: min(430px, 96vw); /* responsive width */
+  box-sizing: border-box;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  padding: 24px;
+}
+
+.modal-with-form__title {
+  margin: 0 0 8px 0; /* remove large left margin */
+  font-size: 20px;
+  line-height: 1.2;
+  color: #111;
+}
+
+.modal-with-form__close {
+  position: absolute;
+  /* top: 200px;
+  right: 650px; */
+  top: -20px; /* sit near top-right corner of the modal */
+  right: -20px;
+  transform: translate(50%, -50%);
+  z-index: 2001;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* make the img/svg inside the button a consistent size */
+.modal-with-form__close img,
+.modal-with-form__close svg {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
+/* form container inside modal */
+.modal-with-form__form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+/* ensure inputs and buttons fill width */
+.modal-with-form__form input,
+.modal-with-form__form textarea,
+.modal-with-form__form .register-modal__btn,
+.modal-with-form__form .login-modal__btn {
+  width: 100%;
+  box-sizing: border-box;
+  /* make input look like a single line */
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #dcdcdc;
+  border-radius: 0;
+  padding: 8px 4px;
+  margin: 0;
+  outline: none;
+  font-size: 14px;
+  color: #111;
+  -webkit-appearance: none;
+}
+
+/* register-modal specific adjustments if className="register-modal" is used */
+.modal-with-form.register-modal {
+  max-width: 420px;
+  padding: 20px;
+}
+
+.modal-with-form.register-modal .modal-with-form__form .register-modal__btn {
+  width: 360px; /* don't force full width */
+  margin: 12px auto 0; /* center horizontally, small top gap */
+  padding: 12px 36px; /* pill padding */
+  border-radius: 28px; /* rounded pill */
+  background: rgba(230, 232, 235, 1);
+  color: rgba(182, 188, 191, 1);
+  border: none;
+  outline: none;
+  cursor: default;
+  font-weight: 600;
+  display: inline-block;
+  box-shadow: none;
+}
+
+/* Active / enabled state */
+.modal-with-form.register-modal
+  .modal-with-form__form
+  .register-modal__btn.register-modal__btn--active {
+  background: #2b7be9; /* primary blue */
+  color: #fff;
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+/* Disabled styling (if button has disabled attribute) */
+.modal-with-form.register-modal
+  .modal-with-form__form
+  .register-modal__btn:disabled {
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+/* keep the "or Sign In" secondary button/link small and centered */
+.modal-with-form.register-modal .register-modal__btn--secondary {
+  margin: 10px auto 0;
+  display: inline-block;
+  background: transparent;
+  color: #1a73e8;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+.modal-with-form.register-modal .register-modal__btn--secondary,
+.modal-with-form.register-modal
+  .modal-with-form__form
+  .register-modal__btn--secondary {
+  width: auto !important;
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  color: rgba(47, 113, 229, 1);
+  display: inline-block;
+  margin: 10px auto 0;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.modal-with-form .login-modal__btn {
+  width: 360px;
+  margin: 12px auto 0; /* center under the form */
+  padding: 10px 34px; /* pill padding */
+  border-radius: 28px; /* pill shape */
+  background: #f3f4f6; /* lighter gray pill box */
+  color: #9aa0a6; /* light gray letters */
+  border: none;
+  outline: none;
+  cursor: default; /* indicates disabled/default appearance */
+  font-weight: 600;
+  display: inline-block;
+  text-align: center;
+  box-shadow: none;
+}
+
+/* enabled/active state (keep existing project look) */
+.modal-with-form .login-modal__btn.login-modal__btn--active {
+  background: #2b7be9; /* primary blue for active */
+  color: #ffffff;
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+/* ensure disabled attribute retains the "muted" look */
+.modal-with-form .login-modal__btn:disabled {
+  opacity: 0.95;
+  pointer-events: none;
+}
+
+/* remove background/pill for the login modal secondary button */
+.modal-with-form .login-modal__btn.login-modal__btn--secondary,
+.login-modal__btn.login-modal__btn--secondary {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
+  width: auto !important;
+  display: inline-block;
+  color: #1a73e8; /* link color */
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* center secondary "or" buttons in modals and remove background */
+.modal-with-form .register-modal__btn--secondary,
+.modal-with-form.register-modal .register-modal__btn--secondary,
+.modal-with-form .login-modal__btn--secondary,
+.modal-with-form.register-modal .login-modal__btn--secondary {
+  display: block !important;
+  margin: 12px auto 0 !important;
+  width: auto !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  text-align: center !important;
+  color: #1a73e8 !important;
+  cursor: pointer !important;
+}
+
+/* Responsive modal styles */
+@media (max-width: 768px) {
+  .modal-with-form__overlay {
+    width: 90vw;
+    padding: 16px;
+  }
+
+  .modal-with-form__close {
+    transform: translate(45%, -45%);
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .modal-with-form {
+    width: 100%;
+    max-width: 420px;
+    padding: 16px;
+    border-radius: 10px;
+  }
+
+  .modal-with-form__close {
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .modal-with-form__title {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 320px) {
+  .modal-with-form {
+    position: relative;
+    padding-top: 48px; /* ensures space for the close button */
+  }
+
+  .modal-with-form__overlay {
+    width: 98vw;
+    padding: 8px;
+  }
+
+  .modal-with-form__close {
+    transform: translate(40%, -40%);
+    width: 32px;
+    height: 32px;
+  }
+}

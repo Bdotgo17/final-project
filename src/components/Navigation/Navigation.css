@@ -1,0 +1,448 @@
+.navigation__desktop-list {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.navigation__desktop-list li {
+  margin: 0;
+}
+
+/* Navigation Links */
+.navigation__link {
+  text-decoration: none;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  background: transparent;
+  position: relative;
+  transition: color 0.2s;
+}
+
+.navigation__desktop-list li:first-child .navigation__link {
+  font-size: 18px;
+  margin-right: 42px;
+}
+
+.navigation__desktop-list li:last-child .navigation__link {
+  border: 2px solid #fff;
+  border-radius: 999px; /* Makes it an oval */
+  width: 176px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 28px;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  font-size: 1.1rem;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+  box-sizing: border-box;
+  margin-right: 104px;
+}
+
+.navigation__desktop-list li:last-child .navigation__link:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.navigation__sign-in-btn {
+  border: 2px solid #fff;
+  border-radius: 999px; /* Makes it an oval */
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 28px;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  font-size: 1.1rem;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+  box-sizing: border-box;
+  margin-right: 104px;
+  cursor: pointer;
+}
+
+.navigation__sign-in-btn:hover,
+.navigation__sign-in-btn:active,
+.navigation__sign-in-btn:focus {
+  background: transparent;
+  color: #fff;
+  outline: none;
+  border-color: #fff;
+}
+
+.login-modal__btn {
+  border: 2px solid #fff;
+  border-radius: 999px;
+  width: 176px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 28px;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+  box-sizing: border-box;
+  margin-right: 104px;
+  cursor: pointer;
+}
+
+.login-modal__btn:hover,
+.login-modal__btn:active,
+.login-modal__btn:focus {
+  background: transparent;
+  color: #fff;
+  outline: none;
+  border-color: #fff;
+}
+
+.navigation__link {
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.1rem;
+  background: transparent;
+}
+
+.navigation__link.active::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -29px; /* Adjust as needed to sit above the header's border */
+  height: 3px; /* <-- Set height to 3px */
+  background: #fff;
+  border-radius: 2px;
+  z-index: 2;
+}
+
+.navigation__link.active[data-underline="saved"]::after {
+  width: 178px;
+}
+
+.navigation__link,
+.navigation__sign-in-btn {
+  color: #fff;
+}
+
+/* Color overrides for dark/light header */
+.header--dark .navigation__link,
+.header--dark .navigation__sign-in-btn,
+.header--dark .navigation__user-name {
+  color: white !important;
+  border-color: white !important;
+}
+
+.header--dark .navigation__link.active::after {
+  background: #111 !important;
+}
+
+.header--light .navigation__sign-in-btn,
+.header--light .navigation__user-name {
+  color: black !important;
+  border-color: black !important;
+}
+
+.header--light .navigation__sign-in-btn {
+  color: black !important;
+  border-color: black !important;
+}
+
+.navigation__user-circle {
+  width: 32px;
+  height: 32px;
+  background: #e5e5e5;
+  color: #2f71e5;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.navigation__user-name {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: inherit;
+  margin-right: 8px;
+}
+
+.navigation__logout-img {
+  margin-left: 8px;
+  vertical-align: middle;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  /* Remove right margin from Home button */
+  .navigation__desktop-list li:first-child {
+    margin-right: 0;
+  }
+
+  /* Add 16px gap between Home and Sign In */
+  .navigation__desktop-list ul {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navigation__link.active {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .navigation__link.active::after {
+    bottom: -18px; /* Adjust vertical position as needed */
+    height: 3px;
+    background: #fff;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .navigation__link.active[data-underline="saved"]::after {
+    width: 125px;
+  }
+
+  /* Sign In button: 40px from right edge */
+  .navigation__sign-in-btn {
+    margin-left: 0;
+    margin-right: 40px;
+    border: 2px solid #fff;
+    border-radius: 999px; /* Makes it an oval */
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 28px;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    font-size: 1.1rem;
+    background: transparent;
+    transition: background 0.2s, color 0.2s;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+
+  .header__title {
+    margin-left: 0px;
+    font-family: "Roboto Slab", serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    vertical-align: middle;
+  }
+}
+
+@media (max-width: 320px) {
+  .navigation__desktop-list {
+    display: none;
+  }
+
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 56px; /* Match the value above */
+    z-index: 1001; /* Higher than mobile nav */
+    background: transparent;
+  }
+
+  .header__title {
+    font-family: "Roboto Slab", serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    vertical-align: middle;
+    margin-left: 16px;
+    position: absolute;
+    left: 6px;
+    z-index: 1001;
+    color: #fff;
+    background: transparent;
+  }
+
+  .header__menu-btn {
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    z-index: 1002; /* higher than mobile nav and header */
+    background: transparent;
+    border: none;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+
+  .navigation__mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background: #111;
+    z-index: 999;
+    padding: 32px 24px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+    transform: translateY(-100%);
+  }
+
+  .navigation__mobile-nav--open {
+    transform: translateY(0);
+  }
+
+  .navigation__mobile-nav,
+  .navigation__mobile-nav--open {
+    position: fixed;
+    display: block !important;
+    background: rgba(26, 27, 34, 1);
+    position: fixed;
+    top: 0; /* Below the header */
+    left: 0;
+    width: 320px;
+    height: 174px;
+    min-height: 230px;
+    height: auto;
+    z-index: 999;
+    padding: 52px 24px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+    transform: translateY(-100%);
+    color: #111;
+  }
+
+  .navigation__mobile-nav--open {
+    transform: translateY(0);
+  }
+
+  .navigation__mobile-nav .navigation__link {
+    width: 100%;
+    margin-bottom: 24px;
+    font-size: 20px;
+    text-align: left;
+    border-radius: 12px;
+    background: transparent;
+    color: #fff !important;
+    border: none;
+    display: flex;
+    align-items: center;
+    transition: background 0.2s, color 0.2s;
+    cursor: pointer;
+  }
+
+  .navigation__mobile-nav .navigation__link:hover,
+  .navigation__mobile-nav .navigation__link:focus {
+    background: #222;
+    color: #2f71e5;
+  }
+
+  .navigation__mobile-nav .navigation__link:first-child {
+    margin-top: 58px; /* Move Home button down */
+  }
+
+  .navigation__mobile-nav .navigation__sign-in-btn {
+    position: static;
+    width: 100%;
+    margin-top: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 288px;
+    height: 56px;
+    position: absolute;
+    top: 200px; /* Use your preferred vertical position */
+    left: 16px;
+    opacity: 1;
+    border-radius: 100px;
+    border: 2px solid #fff;
+    background: #000;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: #fff;
+    box-sizing: border-box;
+  }
+
+  .navigation__menu-btn {
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    z-index: 201;
+    background: transparent;
+    border: none;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+
+  .navigation__mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 1);
+    z-index: 99; /* Should be below your mobile-nav, but above everything else */
+    opacity: 50%;
+  }
+
+  .navigation__sign-in-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999; /* Higher than .mobile-nav */
+    background: rgba(0, 0, 0, 0.95); /* Or your preferred modal background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navigation__mobile-nav--open ~ .header__content .header__title,
+  .navigation__mobile-nav--open ~ .header__title,
+  .navigation__mobile-nav--open + .header__content .header__title,
+  .navigation__mobile-nav--open + .header__title,
+  .navigation__mobile-nav--open .header__title,
+  .navigation__mobile-nav--open ~ .header .header__title {
+    background: #111 !important;
+    color: #fff !important;
+  }
+
+  .header--nav-open .header__title {
+    background: #111 !important;
+    color: #fff !important;
+  }
+}

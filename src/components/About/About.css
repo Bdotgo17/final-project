@@ -1,0 +1,120 @@
+.about__author {
+  width: 100%;
+  max-width: 1440px;
+  height: 624px;
+  margin: 0 auto;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 48px 64px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+}
+
+.author__image {
+  width: 463px;
+  height: 464px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #eaeaea;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  background: #eee;
+}
+
+.author__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.author__info h2 {
+  font-size: 40px;
+  font-family: "Roboto Slab", serif;
+  font-weight: 400;
+  color: #213547;
+  margin-bottom: 24px;
+}
+
+.author__info p {
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  color: #213547;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .about__author {
+    width: 768px;
+    height: 354px;
+    max-width: 100%;
+    padding: 24px 16px;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .author__image {
+    width: 232px;
+    height: 232px;
+    margin-bottom: 0;
+  }
+
+  .author__info h2 {
+    font-family: "Roboto Slab", serif;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 40px;
+    letter-spacing: 0px;
+    margin-bottom: 16px; /* adjust as needed */
+  }
+
+  .author__info p {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0px;
+  }
+}
+
+/* ===== Mobile (≤320px) ===== */
+@media (max-width: 320px) {
+  .about__author {
+    width: 320px;
+    height: 752px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 16px 8px;
+    gap: 16px;
+    box-sizing: border-box;
+  }
+
+  .author__image {
+    width: 272px;
+    height: 272px;
+    border-radius: 50%;
+    margin-bottom: 16px;
+    object-fit: cover;
+  }
+
+  .author__info h2 {
+    font-family: "Roboto Slab", serif;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 40px;
+    letter-spacing: 0px;
+    margin-bottom: 8px;
+  }
+
+  .author__info p {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0px;
+  }
+}

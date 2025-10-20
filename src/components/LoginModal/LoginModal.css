@@ -1,0 +1,171 @@
+.login-modal__title {
+  color: #111;
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  position: static;
+  top: 34px;
+  left: 36px;
+  right: 318px;
+  bottom: 314px;
+  margin: 0;
+  padding-left: 36px;
+  padding-bottom: 8px;
+}
+
+.login-modal__btn--spaced {
+  margin-top: 12px;
+}
+
+.login-modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* space between inputs and button */
+  margin-top: 40px; /* adjust as needed for spacing below the title */
+  margin-bottom: 20px;
+}
+
+.login-modal__input {
+  background: #fff;
+  color: #b6b6b6;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  border-radius: 0;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+  line-height: 1.2;
+  height: 29px; /* set input height */
+  padding: 0 0 0 0px; /* add this for left padding */
+  margin-bottom: 0px;
+  transition: border-color 0.2s;
+  width: calc(100% - 72px); /* 36px left + 36px right */
+  margin-left: 36px;
+  margin-right: 36px;
+}
+
+.login-modal__input::placeholder {
+  color: #b6b6b6;
+  opacity: 1;
+}
+
+.login-modal__btn {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 100px;
+  border: none;
+  background: rgba(230, 232, 235, 1); /* default gray */
+  color: rgba(182, 188, 191, 1);
+  cursor: pointer;
+  margin-top: 12px;
+  transition: background 0.2s;
+  width: 358px;
+  height: 64px;
+}
+
+.login-modal__btn-or {
+  color: #111;
+  margin-right: 8px; /* adds space between "or" and "Sign up" */
+}
+
+.login-modal__btn--demo {
+  margin-top: 12px;
+}
+
+.login-modal__btn--secondary {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  background: transparent;
+  color: #2f71e5;
+  box-shadow: none;
+  border: none;
+  font-weight: 400;
+  margin-top: 0;
+}
+
+.login-modal__label {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(47, 113, 229, 1);
+  line-height: 1.2;
+  margin-bottom: 2px; /* reduce space below label */
+  margin-top: 0;
+  height: 16px; /* ensure label is not too tall */
+  display: block;
+  top: 88px;
+}
+
+.login-modal__btn,
+.login-modal__btn.secondary {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.login-modal__input:focus,
+.login-modal__input:not(:placeholder-shown) {
+  color: #111;
+}
+
+.login-modal__btn--active {
+  background: #2f71e5;
+  color: #fff;
+  cursor: pointer;
+}
+
+.login-modal__input-error {
+  color: rgba(255, 0, 0, 1);
+  font-size: 12px;
+  margin-left: 36px;
+}
+
+.login-modal__btn--secondary:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.login-modal__btn-signup {
+  color: #2f71e5;
+}
+
+@media (max-width: 320px) {
+  .login-modal__btn,
+  .login-modal__btn-demo {
+    width: 288px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    border-radius: 100px;
+    border: 2px solid #fff;
+    box-sizing: border-box;
+    margin: 16px auto; /* optional: centers the button horizontally */
+  }
+
+  .login-modal__btn-or-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* centers the row horizontally */
+    align-items: center;
+    gap: 4px; /* reduce gap for closer spacing */
+    margin-top: 12px;
+    width: 100%; /* ensures full row width */
+    padding: 0;
+  }
+
+  .login-modal__btn-or {
+    margin: 0; /* remove any default margin */
+    padding: 0; /* remove any default padding */
+    text-align: center; /* center the text */
+    flex-shrink: 0; /* prevent shrinking */
+    min-width: 18px; /* prevents "or" from shrinking too much */
+  }
+
+  .login-modal__btn--secondary {
+    margin: 0;
+    padding: 0 8px;
+  }
+}

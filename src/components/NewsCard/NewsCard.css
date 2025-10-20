@@ -1,0 +1,456 @@
+.news__card {
+  width: 400px;
+  height: 576px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.news__card-image {
+  width: 100%;
+  height: 272px;
+  object-fit: cover;
+  display: block;
+}
+
+.news__card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 24px 16px 24px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.news__card-date {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  vertical-align: middle;
+  margin-bottom: 4px;
+}
+
+.news__card-title {
+  font-size: 20px;
+  font-family: "Roboto Slab", serif;
+  color: #213547;
+  margin: 0 0 6px 0;
+  font-weight: 700;
+}
+
+.news__card-description {
+  font-size: 16px;
+  color: #213547;
+  font-family: "Roboto", sans-serif;
+  margin: 0 0 8px 0;
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.news__card-source {
+  font-size: 14px;
+  color: #b6bcbf;
+  font-family: "Roboto Slab", serif;
+  text-transform: uppercase;
+  position: absolute;
+  bottom: 16px;
+  left: 24px;
+  right: 24px;
+  text-align: left;
+}
+
+.news__card-header {
+  position: relative;
+}
+
+.news__card-save-icon {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.news__card-header:hover .news__card-keyword-label {
+  border: 2px solid #111;
+}
+
+.news__card-save-icon svg {
+  stroke: #b6bcbf;
+  fill: none;
+  transition: stroke 0.15s ease;
+  pointer-events: none;
+}
+
+/* when hovering the button (only when NOT saved) */
+.news__card-save-icon:not(.news__card-save-icon--saved):hover svg {
+  stroke: #111;
+}
+
+.news__card-save-icon--saved svg {
+  stroke: #2f71e5;
+  fill: #2f71e5;
+}
+
+.news__card-save-icon:focus {
+  outline: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* or your preferred shadow */
+}
+
+.news__card-keyword-label {
+  position: absolute;
+  top: 24px; /* Adjust this value to lower it as needed */
+  left: 24px; /* Or whatever your card's padding is */
+  min-height: 40px; /* Ensures at least 40px tall */
+  line-height: 40px;
+  display: inline-block;
+  background: #fff;
+  color: #111;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0px;
+  text-align: center;
+  border-radius: 10px;
+  margin-right: 8px;
+  vertical-align: middle;
+  padding: 0 16px; /* Keeps width flexible for content */
+  display: flex;
+  align-items: center; /* Vertically center the text */
+  background: #fff; /* Or your design */
+  border-radius: 8px; /* Optional: rounded look */
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  z-index: 2;
+  border: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.news__card-ribbon-svg {
+  width: 60px; /* or whatever width fits your design */
+  height: 24px; /* adjust as needed */
+  display: block;
+}
+
+.news__card-header {
+  position: relative;
+}
+
+.news__card-trashcan-wrapper {
+  position: absolute;
+  top: 2px;
+  right: -2px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  z-index: 3;
+}
+
+.news__card-remove-tooltip {
+  position: absolute;
+  right: 70px;
+  top: -2px;
+  min-height: 40px;
+  background: #fff;
+  color: #213547;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 0px 16px;
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+  white-space: nowrap;
+  z-index: 10;
+  border: 1px solid #eaeaea;
+  animation: fadeIn 0.2s;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (width: 768px) {
+  .news__cards-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    justify-items: center;
+    margin: 0 auto 0 auto;
+  }
+
+  .news__card-title {
+    font-family: "Roboto Slab", serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    margin-bottom: 6px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 72px;
+  }
+
+  .news__card-description {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0px;
+    margin-bottom: 8px;
+    max-height: 44px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .news__card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 192px; /* or adjust as needed */
+    position: relative;
+  }
+
+  .news__card {
+    width: 224px;
+    height: 420px;
+  }
+
+  .news__card-keyword-label {
+    padding: 0 16px; /* Keeps width flexible for content */
+    display: flex;
+    align-items: center; /* Vertically center the text */
+    background: #fff; /* Or your design */
+    border-radius: 8px; /* Optional: rounded look */
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    z-index: 2;
+  }
+
+  .news__card-image {
+    height: 196px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .news__card-link {
+    display: none;
+  }
+
+  .news__card-date {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    vertical-align: middle;
+    margin-bottom: 4px;
+    color: rgba(182, 188, 191, 1);
+    border-radius: 6px;
+    display: inline-block;
+  }
+
+  .news__card-source {
+    font-family: "Roboto Slab", serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: rgba(182, 188, 191, 1);
+    border-radius: 6px;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 24px;
+    right: 24px;
+    text-align: left;
+  }
+
+  .news__card-save-icon {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    cursor: pointer;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+  }
+
+  .news__card-remove-tooltip {
+    position: absolute;
+    right: 40px;
+    top: -2px;
+    min-height: 40px;
+    background: #fff;
+    color: #213547;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 0px 16px;
+    font-size: 12px;
+    font-family: "Roboto", sans-serif;
+    white-space: nowrap;
+    z-index: 10;
+    border: 1px solid #eaeaea;
+    animation: fadeIn 0.2s;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+  }
+}
+
+@media (max-width: 320px) {
+  .news__card {
+    position: relative;
+
+    width: 288px;
+    height: 440px;
+  }
+
+  .news__card-header {
+    position: relative;
+  }
+
+  .news__card-image {
+    height: 196px;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .news__card-content {
+    padding: 12px 8px 8px 8px;
+  }
+
+  .news__cards-list {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 0px 8px 0 8px;
+  }
+
+  .news__card-link {
+    display: none;
+  }
+
+  .news__card-date {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    vertical-align: middle;
+    margin-bottom: 8px;
+    color: #b6bcbf;
+    margin-left: 8px;
+  }
+
+  .news__card-title {
+    font-family: "Roboto Slab", serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    margin-bottom: 8px;
+    margin-left: 8px;
+    color: #213547;
+  }
+
+  .news__card-description {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0px;
+    margin-left: 8px;
+    margin-bottom: 8px;
+    color: #213547;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .news__card-source {
+    font-family: "Roboto Slab", serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: #b6bcbf;
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    right: 8px;
+    text-align: left;
+    border-radius: 6px;
+    display: inline-block;
+  }
+
+  .news__card-keyword-label {
+    position: absolute;
+    top: 24px; /* Adjust this value to lower it as needed */
+    left: 24px; /* Or whatever your card's padding is */
+    min-height: 40px; /* Ensures at least 40px tall */
+    line-height: 40px;
+    display: inline-block;
+    background: #fff;
+    color: #111;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0px;
+    text-align: center;
+    border-radius: 10px;
+    margin-right: 8px;
+    vertical-align: middle;
+    border: 2px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .news__card-trashcan-wrapper,
+  .news__card-save-icon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    z-index: 3;
+  }
+}
